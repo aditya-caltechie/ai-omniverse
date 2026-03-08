@@ -51,11 +51,15 @@ Course repos and materials are organized by track below.
 
 ## 3. MLOps Track
 
-- *Links to be added.*
+| **Topic** | **Repo** | **Description** |
+|-----------|----------|-----------------|
+| — | — | *TODO* |
 
-## Udemy Notes
+## Study Notes
 
-- [**ai-tutorial-notes**](https://github.com/aditya-caltechie/ai-tutorial-notes) — Consolidated notes and references from Udemy AI/ML courses. Quick lookup for concepts, commands, and patterns used across the tracks.
+| **Repo** | **Description** |
+|----------|-----------------|
+| [ai-tutorial-notes](https://github.com/aditya-caltechie/ai-tutorial-notes) | Consolidated notes and references from Udemy AI/ML courses. Quick lookup for concepts, commands, and patterns used across the tracks. |
 
 
 # Appendix :
