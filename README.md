@@ -21,6 +21,10 @@ Course repos and materials are organized by track below.
 
 ## 1. LLM Core Track
 
+<p align="center">
+  <img src="assets/core-llm-track.png" alt="Core LLM Track: GPT, NLP, AI" width="700"/>
+</p>
+
 ### LangChain Basics
 - [**ai-langchain-intro**](https://github.com/aditya-caltechie/ai-langchain-intro) — Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications.
 
