@@ -53,7 +53,7 @@ Course repos and materials are organized by track below.
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
-| — | — | *TODO* |
+| Deploy Gen AI & Agentic AI in Production | [MLOps-production](https://github.com/aditya-caltechie/ed-donner-MLOps-production) | Course repo: deploy Gen AI and Agentic AI at scale in 4 weeks. Covers production deployment, guides, and week-by-week materials (Udemy companion). |
 
 ## Study Notes
 
