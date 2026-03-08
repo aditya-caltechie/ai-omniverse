@@ -74,8 +74,10 @@ Course repos and materials are organized by track below.
 ## Layers of AI
 
 <p align="center">
-  <img src="assets/layers-of-ai.png" alt="Layers of AI: Classical AI, Machine Learning, Neural Networks, Deep Learning, Generative AI, Agentic AI" width="550"/>
+  <img src="assets/layers-of-ai.png" alt="Layers of AI Learning: Classical AI, Machine Learning, Neural Networks, Deep Learning, Generative AI, Agentic AI" width="700"/>
 </p>
+
+
 
 ---
 
