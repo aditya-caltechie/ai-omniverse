@@ -76,12 +76,9 @@ Course repos and materials are organized by track below.
 </p>
 
 
-
----
-
 # Appendix :
 
-## RLHF
+### RLHF
 
 Something yet to explore RLHF :
 ```
