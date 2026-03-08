@@ -90,3 +90,9 @@ Final PPO Model
  - Optimized for your RAG use case
  - Better at generating clean, correct SQL
 ```
+
+# Layers of AI Learning
+
+<p align="center">
+  <img src="assets/layers-of-ai.png" alt="Layers of AI: Classical AI, Machine Learning, Neural Networks, Deep Learning, Generative AI, Agentic AI" width="700"/>
+</p>
