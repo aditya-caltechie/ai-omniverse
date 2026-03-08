@@ -1,7 +1,7 @@
 # ai-omniverse
 
 <p align="center">
-  <img src="assets/ai-omniverse-banner.png" alt="AI/ML learning: traditional ML to deep learning, Gen AI, agentic AI, and MLOps" width="560"/>
+  <img src="assets/ai-omniverse-banner.png" alt="AI/ML learning: traditional ML to deep learning, Gen AI, agentic AI, and MLOps" width="600"/>
 </p>
 <p align="center"><em>Studying AI & agents for the future</em></p>
 
