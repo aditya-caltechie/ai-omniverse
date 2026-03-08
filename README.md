@@ -4,11 +4,13 @@
 
 This repo is a curated learning path covering the full spectrum of modern AI and machine learning:
 
-- **Traditional ML** — fundamentals: regression, classification, clustering, feature engineering, and model evaluation.
-- **Deep Learning** — neural networks, CNNs, RNNs, transformers, and training at scale.
-- **Gen AI & LLMs** — building applications with large language models: prompting, RAG, fine-tuning, and deployment.
-- **Agentic AI** — autonomous agents, tool use, multi-step reasoning, and agent frameworks.
-- **MLOps** — experiment tracking, model versioning, pipelines, serving, and monitoring in production.
+| **Area** | **Coverage** |
+|----------|---------------|
+| **Traditional ML** | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation. |
+| **Deep Learning** | Neural networks, CNNs, RNNs, transformers, and training at scale. |
+| **Gen AI & LLMs** | Building applications with large language models: prompting, RAG, advance RAG techniques, and deployment. |
+| **Agentic AI** | Autonomous agents, tool use, multi-step reasoning, and agent frameworks. |
+| **MLOps** | Experiment tracking, model versioning, pipelines, serving, and monitoring in production. |
 
 Course repos and materials are organized by track below.
 
