@@ -21,46 +21,30 @@ Course repos and materials are organized by track below.
 
 ## 1. LLM Core Track
 
-### LangChain Basics
-- [**ai-langchain-intro**](https://github.com/aditya-caltechie/ai-langchain-intro) — Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications.
+| **Topic** | **Repo** | **Description** |
+|-----------|----------|-----------------|
+| LangChain Basics | [ai-langchain-intro](https://github.com/aditya-caltechie/ai-langchain-intro) | Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications. |
+| Deep Learning | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
+| Fine-tuning | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) | Fine-tuning large language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. |
+| RLHF pipeline (SFT → Reward model → PPO) | — | Yet to explore. |
+| RAG and Agentic RAG | [ai-rag](https://github.com/aditya-caltechie/ai-rag) | Retrieval-augmented generation: vector stores, embeddings, and chaining retrievers with LLMs for knowledge-grounded answers. |
+| | [ai-agentic-rag](https://github.com/aditya-caltechie/ai-agentic-rag) | Agentic RAG: agents that decide when and how to search and reason over retrieved context using LangChain/LangGraph-style patterns. |
+| | [rag-projects](https://github.com/aditya-caltechie/rag-projects) | Hands-on RAG projects and examples (document QA, search, etc.) using common RAG stacks and vector DBs. |
+| AI Agent using Tools/loop & Workflows | [ai-deals2buy](https://github.com/aditya-caltechie/ai-deals2buy) | Capstone: AI agent for deals/shopping with LLM calls, tools, and agent logic. Two approaches: (a) loops & tools via `autonomous_planning_agent.py`, (b) workflow via `planning_agent.py`. |
 
-### Deep Learning
-- [**ai-deep-learning**](https://github.com/aditya-caltechie/ai-deep-learning) — Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built.
-
-### Fine-tuning
-- [**ai-fine-tuning**](https://github.com/aditya-caltechie/ai-fine-tuning) — Fine-tuning large language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models.
-
-### RLHF pipeline (SFT → Reward model → PPO)
-- Yet to explore.
-
-### RAG and Agentic RAG
-- [**ai-rag**](https://github.com/aditya-caltechie/ai-rag) — Retrieval-augmented generation: vector stores, embeddings, and chaining retrievers with LLMs for knowledge-grounded answers.
-- [**ai-agentic-rag**](https://github.com/aditya-caltechie/ai-agentic-rag) — Agentic RAG: agents that decide when and how to search and reason over retrieved context using LangChain/LangGraph-style patterns.
-- [**rag-projects**](https://github.com/aditya-caltechie/rag-projects) — Hands-on RAG projects and examples (document QA, search, etc.) using common RAG stacks and vector DBs.
-
-### AI Agent using Tools/loop & Workflows
-- [**ai-deals2buy**](https://github.com/aditya-caltechie/ai-deals2buy) — Capstone project: a simple AI agent for deals/shopping. Brings together LLM calls, tools, and basic agent logic (e.g. LangChain agents). This has two approaches - a.) Using loops & tools approach via autonomous_planning_agent.py  b.) Workflow appoach via planning_agent.py
-  
 ---
 
 ## 2. Agentic Core Track
 
-### OpenAI Agents SDK
-- *Links to be added.*
-
-### MCP (Model Context Protocol)
-- [**ai-mcp-autonomous-traders**](https://github.com/aditya-caltechie/ai-mcp-autonomous-traders) — Autonomous trading agents using MCP: agents that use tools and context via the Model Context Protocol for trading workflows.
-
-### CrewAI Framework
-- [**ai-crew-engineering-team**](https://github.com/aditya-caltechie/ai-crew-engineering-team) — Multi-agent "engineering team" with CrewAI: role-based agents collaborating on tasks. Demonstrates CrewAI's agent and task APIs.
-- [**ai-crew-financial-researcher**](https://github.com/aditya-caltechie/ai-crew-financial-researcher) — Financial research agent built with CrewAI: research tasks, tools, and structured outputs for finance use cases.
-- [**ai-crew-stock-picker**](https://github.com/aditya-caltechie/ai-crew-stock-picker) — Stock-picking agent with CrewAI: agents that analyze and recommend stocks using external data and tools.
-
-### LangGraph
-- *Links to be added.*
-
-### Autogen
-- *Links to be added.*
+| **Topic** | **Repo** | **Description** |
+|-----------|----------|-----------------|
+| OpenAI Agents SDK | — | *Links to be added.* |
+| MCP (Model Context Protocol) | [ai-mcp-autonomous-traders](https://github.com/aditya-caltechie/ai-mcp-autonomous-traders) | Autonomous trading agents using MCP: agents that use tools and context via the Model Context Protocol for trading workflows. |
+| CrewAI Framework | [ai-crew-engineering-team](https://github.com/aditya-caltechie/ai-crew-engineering-team) | Multi-agent "engineering team" with CrewAI: role-based agents collaborating on tasks. Demonstrates CrewAI's agent and task APIs. |
+| | [ai-crew-financial-researcher](https://github.com/aditya-caltechie/ai-crew-financial-researcher) | Financial research agent built with CrewAI: research tasks, tools, and structured outputs for finance use cases. |
+| | [ai-crew-stock-picker](https://github.com/aditya-caltechie/ai-crew-stock-picker) | Stock-picking agent with CrewAI: agents that analyze and recommend stocks using external data and tools. |
+| LangGraph | — | *Links to be added.* |
+| Autogen | — | *Links to be added.* |
 
 
 
