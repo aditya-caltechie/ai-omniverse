@@ -37,7 +37,7 @@ Course repos and materials are organized by track below.
 
 ## 2. Agentic Core Track
 
-### OpenAI SDK
+### OpenAI Agents SDK
 - *Links to be added.*
 
 ### MCP (Model Context Protocol)
