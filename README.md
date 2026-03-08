@@ -72,6 +72,8 @@ Course repos and materials are organized by track below.
 
 # Appendix :
 
+## RLHF
+
 Something yet to explore RLHF :
 ```
 Supervised Fine-Tuning (SFT)
@@ -91,7 +93,7 @@ Final PPO Model
  - Better at generating clean, correct SQL
 ```
 
-# Layers of AI Learning
+## Layers of AI
 
 <p align="center">
   <img src="assets/layers-of-ai.png" alt="Layers of AI: Classical AI, Machine Learning, Neural Networks, Deep Learning, Generative AI, Agentic AI" width="700"/>
