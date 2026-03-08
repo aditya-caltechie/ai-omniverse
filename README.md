@@ -1,6 +1,6 @@
 # ai-omniverse
 
-**One stop for AI/ML learning** — from foundations to production.
+**One stop for AI/ML learning** — AL/ML learning Gym including traditional ML, deep learning, fine-tuning, Gen AI, Agentic AI. Everything from experiments to production with evaluation and observability.
 
 This repo is a curated learning path covering the full spectrum of modern AI and machine learning:
 
