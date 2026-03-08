@@ -1,5 +1,10 @@
 # ai-omniverse
 
+<p align="center">
+  <img src="assets/ai-omniverse-banner.png" alt="AI/ML learning: traditional ML to deep learning, Gen AI, agentic AI, and MLOps" width="560"/>
+</p>
+<p align="center"><em>Studying AI & agents for the future</em></p>
+
 **One stop for AI/ML learning** — AL/ML learning Gym including traditional ML, deep learning, fine-tuning, Gen AI, Agentic AI. Everything from experiments to production with evaluation and observability.
 
 This repo is a curated learning path covering the full spectrum of modern AI and machine learning:
@@ -15,10 +20,6 @@ Course repos and materials are organized by track below.
 ---
 
 ## 1. LLM Core Track
-
-<p align="center">
-  <img src="assets/core-llm-track.png" alt="Core LLM Track: GPT, NLP, AI" width="700"/>
-</p>
 
 ### LangChain Basics
 - [**ai-langchain-intro**](https://github.com/aditya-caltechie/ai-langchain-intro) — Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications.
@@ -43,10 +44,6 @@ Course repos and materials are organized by track below.
 ---
 
 ## 2. Agentic Core Track
-
-<p align="center">
-  <img src="assets/core-agentic-track.png" alt="Agentic Core Track: Agents, CrewAI, MCP" width="700"/>
-</p>
 
 ### OpenAI Agents SDK
 - *Links to be added.*
