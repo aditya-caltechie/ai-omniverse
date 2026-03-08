@@ -1,5 +1,10 @@
 # ai-omniverse
 
+<p align="center">
+  <img src="assets/ai-omniverse-banner.png" alt="AI/ML learning: from traditional ML to deep learning, Gen AI, agentic AI, and MLOps" width="800"/>
+</p>
+<p align="center"><em>Studying AI & agents for the future</em></p>
+
 **One stop for AI/ML learning** — AL/ML learning Gym including traditional ML, deep learning, fine-tuning, Gen AI, Agentic AI. Everything from experiments to production with evaluation and observability.
 
 This repo is a curated learning path covering the full spectrum of modern AI and machine learning:
