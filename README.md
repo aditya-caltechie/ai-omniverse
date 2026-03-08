@@ -69,6 +69,15 @@ Course repos and materials are organized by track below.
 |----------|-----------------|
 | [ai-tutorial-notes](https://github.com/aditya-caltechie/ai-tutorial-notes) | Consolidated notes and references from Udemy AI/ML courses. Quick lookup for concepts, commands, and patterns used across the tracks. |
 
+---
+
+## Layers of AI
+
+<p align="center">
+  <img src="assets/layers-of-ai.png" alt="Layers of AI: Classical AI, Machine Learning, Neural Networks, Deep Learning, Generative AI, Agentic AI" width="550"/>
+</p>
+
+---
 
 # Appendix :
 
@@ -92,9 +101,3 @@ Final PPO Model
  - Optimized for your RAG use case
  - Better at generating clean, correct SQL
 ```
-
-## Layers of AI
-
-<p align="center">
-  <img src="assets/layers-of-ai.png" alt="Layers of AI: Classical AI, Machine Learning, Neural Networks, Deep Learning, Generative AI, Agentic AI" width="700"/>
-</p>
