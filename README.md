@@ -30,19 +30,22 @@ Course repos and materials are organized by track below.
 ### Fine-tuning
 - [**ai-fine-tuning**](https://github.com/aditya-caltechie/ai-fine-tuning) — Fine-tuning large language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models.
 
+### RLHF pipeline (SFT → Reward model → PPO)
+- Yet to explore.
+
 ### RAG and Agentic RAG
 - [**ai-rag**](https://github.com/aditya-caltechie/ai-rag) — Retrieval-augmented generation: vector stores, embeddings, and chaining retrievers with LLMs for knowledge-grounded answers.
 - [**ai-agentic-rag**](https://github.com/aditya-caltechie/ai-agentic-rag) — Agentic RAG: agents that decide when and how to search and reason over retrieved context using LangChain/LangGraph-style patterns.
 - [**rag-projects**](https://github.com/aditya-caltechie/rag-projects) — Hands-on RAG projects and examples (document QA, search, etc.) using common RAG stacks and vector DBs.
 
-### Basic AI Agent (Capstone)
-- [**ai-deals2buy**](https://github.com/aditya-caltechie/ai-deals2buy) — Capstone project: a simple AI agent for deals/shopping. Brings together LLM calls, tools, and basic agent logic (e.g. LangChain agents).
-
+### AI Agent using Tools/loop & Workflows
+- [**ai-deals2buy**](https://github.com/aditya-caltechie/ai-deals2buy) — Capstone project: a simple AI agent for deals/shopping. Brings together LLM calls, tools, and basic agent logic (e.g. LangChain agents). This has two approaches - a.) Using loops & tools approach via autonomous_planning_agent.py  b.) Workflow appoach via planning_agent.py
+  
 ---
 
 ## 2. Agentic Core Track
 
-### OpenAI SDK
+### OpenAI Agents SDK
 - *Links to be added.*
 
 ### MCP (Model Context Protocol)
@@ -71,3 +74,24 @@ Course repos and materials are organized by track below.
 
 - [**ai-tutorial-notes**](https://github.com/aditya-caltechie/ai-tutorial-notes) — Consolidated notes and references from Udemy AI/ML courses. Quick lookup for concepts, commands, and patterns used across the tracks.
 
+
+# Appendix :
+
+Something yet to explore RLHF :
+```
+Supervised Fine-Tuning (SFT)
+ - High-quality instruction-response pairs
+ - Teaches model SQL generation patterns
+ ↓
+Reward Model Training
+ - Preference learning (good vs bad SQL)
+ - Learns to score SQL quality
+ ↓
+PPO Optimization (RLHF)
+ - Uses reward model as critic
+ - Optimizes for better SQL generation
+ ↓
+Final PPO Model
+ - Optimized for your RAG use case
+ - Better at generating clean, correct SQL
+```
