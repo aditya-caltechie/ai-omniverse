@@ -46,8 +46,8 @@ Course repos and materials are organized by track below.
 | OpenAI Agents SDK | — | *Links to be added.* |
 | MCP (Model Context Protocol) | [ai-mcp-autonomous-traders](https://github.com/aditya-caltechie/ai-mcp-autonomous-traders) | Autonomous trading agents using MCP: agents that use tools and context via the Model Context Protocol for trading workflows. |
 | CrewAI Framework | [ai-crew-engineering-team](https://github.com/aditya-caltechie/ai-crew-engineering-team) | Multi-agent "engineering team" with CrewAI: role-based agents collaborating on tasks. Demonstrates CrewAI's agent and task APIs. |
-| | [ai-crew-financial-researcher](https://github.com/aditya-caltechie/ai-crew-financial-researcher) | Financial research agent built with CrewAI: research tasks, tools, and structured outputs for finance use cases. |
-| | [ai-crew-stock-picker](https://github.com/aditya-caltechie/ai-crew-stock-picker) | Stock-picking agent with CrewAI: agents that analyze and recommend stocks using external data and tools. |
+| CrewAI Framework | [ai-crew-financial-researcher](https://github.com/aditya-caltechie/ai-crew-financial-researcher) | Financial research agent built with CrewAI: research tasks, tools, and structured outputs for finance use cases. |
+| CrewAI Framework | [ai-crew-stock-picker](https://github.com/aditya-caltechie/ai-crew-stock-picker) | Stock-picking agent with CrewAI: agents that analyze and recommend stocks using external data and tools. |
 | LangGraph | — | *Links to be added.* |
 | Autogen | — | *Links to be added.* |
 
