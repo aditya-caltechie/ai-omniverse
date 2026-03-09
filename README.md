@@ -92,6 +92,10 @@ Course repos and materials are organized by track below.
 
 ---
 
+**Two-stage mental model:** In most real-world systems you (1) run **SFT with PEFT (LoRA / QLoRA)** to efficiently teach the model your domain and output format, then (2) optionally apply **DPO / RLHF** on preference data to refine style, safety, and overall “polish” of the assistant.
+
+---
+
 ### RLHF
 
 Something yet to explore RLHF :

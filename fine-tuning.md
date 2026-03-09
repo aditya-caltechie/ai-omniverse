@@ -128,5 +128,10 @@ A simpler alternative to RLHF that skips the explicit reward model and RL phase.
 | **Prompt / Prefix Tuning** | ~0.01%             | Very Low              | High (prompt design & interpretation) |
 | **DPO / RLHF**             | Varies             | High                  | Very High                            |
 
-In practice, most modern LLM applications start with **PEFT (LoRA / QLoRA)** for domain adaptation, and then optionally apply **alignment methods (DPO / RLHF)** when they need stronger control over style, safety, or preference-driven behavior.
+In practice, most modern LLM applications follow a **two-stage pattern**:
+
+1. **Stage 1 – SFT for task + domain**: Use **SFT with PEFT (LoRA / QLoRA)** on your data to efficiently teach the model domain knowledge and output format (avoid full fine-tuning unless you truly need it and have the hardware).
+2. **Stage 2 – Alignment for polish**: Optionally apply **DPO / RLHF** on preference data to polish **style, safety, and helpfulness** on top of the SFT model.
+
+You can often ship a strong product after Stage 1 alone; Stage 2 is most valuable when user experience and safety constraints are critical.
 
