@@ -11,6 +11,7 @@ This repo is a curated learning path covering the full spectrum of modern AI and
 | **Deep Learning** | Neural networks, CNNs, RNNs, transformers, and training at scale. |
 | **Gen AI & LLMs** | Building applications with large language models: prompting, RAG, advance RAG, agentic RAG, and deployment. |
 | **Fine Tuning (SFT)** | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. |
+| **RLHF Pipeline** | RLHF pipeline (SFT → Reward model → PPO). |
 | **Agentic AI** | Autonomous agents, tool use, multi-step reasoning, and agent frameworks. |
 | **MLOps** | Experiment tracking, model versioning, pipelines, serving, and monitoring in production, along with EVALs and observability. |
 
@@ -31,7 +32,7 @@ Course repos and materials are organized by track below.
 |-----------|----------|-----------------|
 | LangChain Basics | [ai-langchain-intro](https://github.com/aditya-caltechie/ai-langchain-intro) | Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications. |
 | Deep Learning | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
-| Fine-tuning | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. |
+| Fine-tuning (SFT) | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. |
 | RLHF pipeline | Todo | Yet to explore. |
 | RAG | [ai-rag](https://github.com/aditya-caltechie/ai-rag) | Retrieval-augmented generation: vector stores, embeddings, and chaining retrievers with LLMs for knowledge-grounded answers. |
 | Agentic RAG| [ai-agentic-rag](https://github.com/aditya-caltechie/ai-agentic-rag) | Agentic RAG: agents that decide when and how to search and reason over retrieved context using LangChain/LangGraph-style patterns. |
