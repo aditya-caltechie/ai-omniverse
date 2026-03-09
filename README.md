@@ -10,7 +10,7 @@ This repo is a curated learning path covering the full spectrum of modern AI and
 | **Traditional ML** | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation. |
 | **Deep Learning** | Neural networks, CNNs, RNNs, transformers, and training at scale. |
 | **Gen AI & LLMs** | Building applications with large language models: prompting, RAG, advance RAG, agentic RAG, and deployment. |
-| **Fine Tuning (SFT)** | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. |
+| **Fine Tuning (SFT)** | Fine-tuning small language models ( PEFT e.g. LoRA, QLoRA, adapters) on custom data. You can perform SFT using Full Fine-Tuning (expensive) or LoRA/QLoRA (efficient).|
 | **RLHF Pipeline** | RLHF pipeline (SFT → Reward model → PPO). |
 | **Agentic AI** | Autonomous agents, tool use, multi-step reasoning, and agent frameworks. |
 | **MLOps** | Experiment tracking, model versioning, pipelines, serving, and monitoring in production, along with EVALs and observability. |
@@ -72,6 +72,25 @@ Course repos and materials are organized by track below.
 
 ---
 # Appendix :
+
+### Fine-Tuning Terminology (SFT vs LoRA vs Full FT)
+
+| **Term**             | **Category**       | **What it describes**                                                     |
+|----------------------|--------------------|---------------------------------------------------------------------------|
+| **SFT**              | Learning Paradigm  | Using labeled *input/output* data to teach a specific behavior.          |
+| **Full Fine-Tuning** | Resource Method    | Modifying **100%** of the model's weights during SFT.                    |
+| **LoRA / QLoRA**     | Resource Method    | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). |
+
+---
+
+### Stages vs. What They Learn
+
+| **Stage**      | **What is learned?**          | **Analogy**                                |
+|---------------|--------------------------------|--------------------------------------------|
+| **SFT**       | Domain knowledge & format      | Learning the textbook for a class.         |
+| **DPO / RLHF**| Style, safety, & preference    | Taking practice exams and getting a grade. |
+
+---
 
 ### RLHF
 
