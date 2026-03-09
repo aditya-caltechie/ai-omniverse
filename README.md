@@ -10,7 +10,7 @@ This repo is a curated learning path covering the full spectrum of modern AI and
 | **Traditional ML** | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation. |
 | **Deep Learning** | Neural networks, CNNs, RNNs, transformers, and training at scale. |
 | **Gen AI & LLMs** | Building applications with large language models: prompting, RAG, advance RAG, agentic RAG, and deployment. |
-| **Fine Tuning** | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. |
+| **Fine Tuning (SFT)** | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. |
 | **Agentic AI** | Autonomous agents, tool use, multi-step reasoning, and agent frameworks. |
 | **MLOps** | Experiment tracking, model versioning, pipelines, serving, and monitoring in production, along with EVALs and observability. |
 
