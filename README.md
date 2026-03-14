@@ -74,7 +74,7 @@ Course repos and materials are organized by track below.
 ---
 # Appendix :
 
-#### Frameworks:
+### Frameworks:
 
 OpenAI Agents SDK, CrewAI, and AutoGen are all **true agent frameworks** (or orchestration frameworks). They're built specifically to let you quickly spin up AI agents (or teams of agents) with opinionated patterns:
 
