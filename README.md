@@ -101,6 +101,8 @@ It's a low-level orchestration framework / agent runtime built around explicit, 
 ##### MCP (Model Context Protocol) :
 It is even further removed — it's not a framework at all. It's a protocol/standard. It just defines a clean, standardized way for any agent to discover and call tools/context/resources from MCP servers.
 
+---
+
 ### Fine-Tuning Terminology (SFT vs LoRA vs Full FT)
 
 | **Term**             | **Category**       | **What it describes**                                                     |
