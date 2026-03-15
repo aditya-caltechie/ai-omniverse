@@ -76,7 +76,8 @@ Course repos and materials are organized by track below.
 
 ### Frameworks:
 
-OpenAI Agents SDK, CrewAI, and AutoGen are all **true agent frameworks** (or orchestration frameworks). They're built specifically to let you quickly spin up AI agents (or teams of agents) with opinionated patterns:
+#### OpenAI Agents SDK, CrewAI, and AutoGen 
+These are all **true agent frameworks** (or orchestration frameworks). They're built specifically to let you quickly spin up AI agents (or teams of agents) with opinionated patterns:
 
 - OpenAI Agents SDK → lightweight, production-ready primitives for single/multi-agent orchestration (successor vibe to Swarm).
 - CrewAI → role-based "crews" where agents have jobs, tasks, and handoffs like a human team.
@@ -85,7 +86,7 @@ OpenAI Agents SDK, CrewAI, and AutoGen are all **true agent frameworks** (or orc
 They're designed end-to-end for "build an agent/team fast."
 LangChain / LangGraph sit in a different bucket.
 
-##### LangChain / LangGraph sit in a different bucket.
+#### LangChain / LangGraph sit in a different bucket.
 LangChain is a general LLM application **framework** (chains, memory, RAG, tools, etc.). LangGraph is its stateful graph layer for building custom workflows with cycles, branching, and multi-actor control flow. You can build agents with them (tons of people do), but they're lower-level building blocks rather than ready-made "agent frameworks." You have to design most of the orchestration yourself — it's more like "React for agents" than "a crew/team builder." 
 
 LangGraph is very much a framework, but it's a different kind compared to things like CrewAI, AutoGen, or OpenAI Agents SDK — which is why it can feel like it doesn't "fit" the same bucket.
@@ -98,7 +99,7 @@ These give you ready-made patterns: "agents with roles," "conversations between 
 - LangGraph (and to some extent LangChain itself)
 It's a low-level orchestration framework / agent runtime built around explicit, programmable graphs (directed graphs with nodes, edges, conditional branches, cycles/loops, persistence). LangGraph is a framework — specifically a low-level, graph-based agent orchestration framework/runtime for stateful, controllable, production-grade AI agents and workflows.
 
-##### MCP (Model Context Protocol) :
+#### MCP (Model Context Protocol) :
 It is even further removed — it's not a framework at all. It's a protocol/standard. It just defines a clean, standardized way for any agent to discover and call tools/context/resources from MCP servers.
 
 ---
