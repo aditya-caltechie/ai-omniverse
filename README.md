@@ -52,6 +52,7 @@ Course repos and materials are organized by track below.
 | CrewAI Framework | [ai-crew-stock-picker](https://github.com/aditya-caltechie/ai-crew-stock-picker) | Stock-picking agent with CrewAI: agents that analyze and recommend stocks using external data and tools. |
 | LangGraph | [ai-sidekick](https://github.com/aditya-caltechie/ai-sidekick) | Personal Assistance, that backs you up and helps you get things done  |
 | Autogen | [ai-autogen-core-judge](https://github.com/aditya-caltechie/ai-autogen-core-judge) | Multi-agent workflow, where Judge decides results of two research agents |
+| Autogen | [ai-agent-creator](https://github.com/aditya-caltechie/ai-agent-creator) | Creates agents with buisiness ideas |
 
 
 
