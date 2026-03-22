@@ -51,8 +51,9 @@ Course repos and materials are organized by track below.
 | CrewAI Framework | [ai-crew-financial-researcher](https://github.com/aditya-caltechie/ai-crew-financial-researcher) | Financial research agent built with CrewAI: research tasks, tools, and structured outputs for finance use cases. |
 | CrewAI Framework | [ai-crew-stock-picker](https://github.com/aditya-caltechie/ai-crew-stock-picker) | Stock-picking agent with CrewAI: agents that analyze and recommend stocks using external data and tools. |
 | LangGraph | [ai-sidekick](https://github.com/aditya-caltechie/ai-sidekick) | Personal Assistance, that backs you up and helps you get things done  |
-| Autogen | [ai-autogen-core-judge](https://github.com/aditya-caltechie/ai-autogen-core-judge) | Multi-agent workflow, where Judge decides results of two research agents |
-| Autogen | [ai-agent-creator](https://github.com/aditya-caltechie/ai-agent-creator) | Creates agents with buisiness ideas |
+| Autogen AgentChat| [ai-autogen-itinerary-planner](https://github.com/aditya-caltechie/ai-autogen-itinerary-planner) | Multi-agent workflow, where we can plan flights with optimal costs |
+| Autogen Core| [ai-autogen-core-judge](https://github.com/aditya-caltechie/ai-autogen-core-judge) | Multi-agent workflow, where Judge decides results of two research agents |
+| Autogen Core | [ai-agent-creator](https://github.com/aditya-caltechie/ai-agent-creator) | Creates agents with buisiness ideas |
 
 
 
