@@ -44,6 +44,7 @@ Course repos and materials are organized by track below.
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
+| Agents without Framework | [ai-career-agent](https://github.com/aditya-caltechie/ai-career-agent) | Basic agent without using any framework. Simple use of tools in loop with LLM to build career chat |
 | OpenAI Agents SDK | [ai-agentic-sales-outreach](https://github.com/aditya-caltechie/ai-agentic-sales-outreach) | Cold-send agent project: agentic cold sales email with tools and handoffs strategies. Uses worksflows and agent approach. Use guardrails |
 | OpenAI Agents SDK | [ai-openai-sdk-deep-research](https://github.com/aditya-caltechie/ai-agent-sdk-deep-research) | Perform Deep Research |
 | MCP (Model Context Protocol) | [ai-mcp-autonomous-traders](https://github.com/aditya-caltechie/ai-mcp-autonomous-traders) | Autonomous trading agents using MCP: agents that use tools and context via the Model Context Protocol for trading workflows. |
