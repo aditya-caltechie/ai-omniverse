@@ -44,13 +44,17 @@ Course repos and materials are organized by track below.
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
-| OpenAI Agents SDK | — | *Links to be added.* |
+| Agents without Framework | [ai-career-agent](https://github.com/aditya-caltechie/ai-career-agent) | Basic agent without using any framework. Simple use of tools in loop with LLM to build career chat |
+| OpenAI Agents SDK | [ai-agentic-sales-outreach](https://github.com/aditya-caltechie/ai-agentic-sales-outreach) | Cold-send agent project: agentic cold sales email with tools and handoffs strategies. Uses worksflows and agent approach. Use guardrails |
+| OpenAI Agents SDK | [ai-openai-sdk-deep-research](https://github.com/aditya-caltechie/ai-agent-sdk-deep-research) | Perform Deep Research |
 | MCP (Model Context Protocol) | [ai-mcp-autonomous-traders](https://github.com/aditya-caltechie/ai-mcp-autonomous-traders) | Autonomous trading agents using MCP: agents that use tools and context via the Model Context Protocol for trading workflows. |
 | CrewAI Framework | [ai-crew-engineering-team](https://github.com/aditya-caltechie/ai-crew-engineering-team) | Multi-agent "engineering team" with CrewAI: role-based agents collaborating on tasks. Demonstrates CrewAI's agent and task APIs. |
 | CrewAI Framework | [ai-crew-financial-researcher](https://github.com/aditya-caltechie/ai-crew-financial-researcher) | Financial research agent built with CrewAI: research tasks, tools, and structured outputs for finance use cases. |
 | CrewAI Framework | [ai-crew-stock-picker](https://github.com/aditya-caltechie/ai-crew-stock-picker) | Stock-picking agent with CrewAI: agents that analyze and recommend stocks using external data and tools. |
-| LangGraph | — | *Links to be added.* |
-| Autogen | — | *Links to be added.* |
+| LangGraph | [ai-sidekick](https://github.com/aditya-caltechie/ai-sidekick) | Personal Assistance, that backs you up and helps you get things done  |
+| Autogen AgentChat| [ai-autogen-itinerary-planner](https://github.com/aditya-caltechie/ai-autogen-itinerary-planner) | Multi-agent workflow, where we can plan flights with optimal costs |
+| Autogen Core| [ai-autogen-core-judge](https://github.com/aditya-caltechie/ai-autogen-core-judge) | Multi-agent workflow, where Judge decides results of two research agents |
+| Autogen Core | [ai-agent-creator](https://github.com/aditya-caltechie/ai-agent-creator) | Creates agents with buisiness ideas |
 
 
 
@@ -72,6 +76,41 @@ Course repos and materials are organized by track below.
 
 ---
 # Appendix :
+
+### Frameworks:
+
+#### OpenAI Agents SDK, CrewAI, and AutoGen 
+These are all **true agent frameworks** (or orchestration frameworks). They're built specifically to let you quickly spin up AI agents (or teams of agents) with opinionated patterns:
+
+- OpenAI Agents SDK → lightweight, production-ready primitives for single/multi-agent orchestration (successor vibe to Swarm).
+- CrewAI → role-based "crews" where agents have jobs, tasks, and handoffs like a human team.
+- AutoGen → conversation-based multi-agent chats where agents talk to each other to solve problems.
+
+They're designed end-to-end for "build an agent/team fast."
+LangChain / LangGraph sit in a different bucket.
+
+#### LangChain / LangGraph sit in a different bucket.
+LangChain is a general LLM application **framework** (chains, memory, RAG, tools, etc.). LangGraph is its stateful graph layer for building custom workflows with cycles, branching, and multi-actor control flow. You can build agents with them (tons of people do), but they're lower-level building blocks rather than ready-made "agent frameworks." You have to design most of the orchestration yourself — it's more like "React for agents" than "a crew/team builder." 
+
+LangGraph is very much a framework, but it's a different kind compared to things like CrewAI, AutoGen, or OpenAI Agents SDK — which is why it can feel like it doesn't "fit" the same bucket.
+
+The key distinction comes down to level of abstraction and opinionation:
+
+- Higher-level / opinionated agent frameworks (CrewAI, AutoGen, OpenAI Agents SDK, etc.)
+These give you ready-made patterns: "agents with roles," "conversations between agents," "handoffs/swarm-style delegation," predefined task queues, automatic tool routing, etc. You mostly configure agents/roles/tasks, and the framework handles a lot of the orchestration "magic" for you. Great for speed → build a team of agents in ~100 lines.
+
+- LangGraph (and to some extent LangChain itself)
+It's a **low-level orchestration framework** / agent runtime built around explicit, programmable graphs (directed graphs with nodes, edges, conditional branches, cycles/loops, persistence). LangGraph is a framework — specifically a low-level, graph-based agent orchestration framework/runtime for stateful, controllable, production-grade AI agents and workflows.
+
+#### LangGraph can we used for making both :
+- **Workflows** : example traditional rag. Simpler. [Reference-1](https://github.com/aditya-caltechie/ai-langchain-intro/blob/main/docs/LangGraph.md) | 
+[Reference-2](https://github.com/aditya-caltechie/ai-langchain-intro/tree/main/src/rag)
+- **Full Agnetic solution** : example agentic-rag repo, ai-sidekick repo
+
+#### MCP (Model Context Protocol) :
+It is even further removed — it's not a framework at all. It's a protocol/standard. It just defines a clean, standardized way for any agent to discover and call tools/context/resources from MCP servers.
+
+---
 
 ### Fine-Tuning Terminology (SFT vs LoRA vs Full FT)
 
