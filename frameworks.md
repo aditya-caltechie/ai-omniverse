@@ -166,6 +166,29 @@ flowchart TD
 **Examples from your repo:** `1_lab1_autogen_agentchat.ipynb` — model, message, agent; `2_lab2` — teams, tools, structured outputs; `3_lab3` — `RoutedAgent` + `SingleThreadedAgentRuntime`; `4_lab4` — gRPC host; `world.py` / `agent*.py` — distributed-style demos.
 
 ---
+## 5. `mcp` — **Model Context Protocol (MCP)**
+
+**What it is:** A **protocol** (not an orchestration framework) for **servers** that expose **tools** (callable capabilities) and **resources** (readable context, often URI-addressed) to a **client/host**. Hosts discover capabilities over a transport; in this repo’s labs, **stdio** is common (subprocess per server), e.g. **`MCPServerStdio`** from the OpenAI Agents SDK.
+
+**Main components (in your course):**
+
+- **`MCPServerStdio`** — run an MCP server as a subprocess (`uvx`, `npx`, or `python accounts_server.py`), then **`list_tools()`** (and wire tools into an `Agent`).
+- **Community / packaged servers** — e.g. **Fetch** (`mcp-server-fetch`), **browser/Playwright** stacks, **memory** (knowledge-graph style persistence from the official servers catalog), **Brave Search**, financial data, etc. (`1_lab1.ipynb`, `3_lab3.ipynb`).
+- **Custom servers with FastMCP** — e.g. **`accounts_server.py`**: `@mcp.tool()` for trading/account actions, **`@mcp.resource(...)`** for account reports and strategy text (`2_lab2.ipynb`, capstone).
+- **Capstone: Autonomous Traders** — `4_lab4.ipynb` / `5_lab5.ipynb` plus modules like **`traders.py`**, **`trading_floor.py`**, **`market.py`**, **`push_server.py`**: multiple traders and a researcher using **many MCP servers** (accounts, fetch, memory, search, financial data, push notifications, etc.).
+- **Supporting code** — `database.py`, `market_server.py`, `mcp_params.py`, `templates.py`, `tracers.py`, `sandbox/` content for scenarios.
+
+**When to use it:**
+
+- You want **one implementation of a capability** reused by **multiple hosts** (different apps, IDEs, or agent stacks) that speak MCP.
+- Tools should run **out-of-process** (isolation, different language runtimes like **Node** for Playwright MCP, separate venvs).
+- You want to **compose** many third-party or internal servers the same way (standard discovery + schemas).
+
+**How it differs from the four orchestration folders:** MCP does **not** define your crew, graph, or handoff policy—it only **standardizes tools/resources**. You still pick **CrewAI / LangGraph / AutoGen / OpenAI Agents** (or others) as the **brain** that decides *when* to call which tool. In *this* course, Week 6 pairs MCP primarily with **`2_openai`**.
+
+**Examples from your repo:** `1_lab1.ipynb` — Fetch + browser MCP via stdio; `2_lab2.ipynb` — `accounts` domain + `accounts_server.py`; `3_lab3.ipynb` — several servers including memory; `4_lab4.ipynb`–`5_lab5.ipynb` — **Autonomous Traders** multi-server simulation.
+
+---
 
 ## Quick “which framework?” table
 
@@ -214,6 +237,15 @@ So at a high level they’re all **orchestration layers** on top of “call the 
 **Short version:** Same building blocks (LLM, tools, steps); different **control plane** (handoffs vs tasks vs graph vs messages/runtime).
 
 ---
+### MCP vs those four (orthogonal axis)
+
+| | **MCP (`mcp`)** | **Orchestration folders (openai agent sdk, crew, langgraph, autogen)** |
+|--|-------------------|-------------------------------------|
+| **Primary job** | Expose **tools + resources** via servers | Decide **workflow**: who runs, in what order, with what state |
+| **Unit of reuse** | Server process / package | Agent, task, graph node, team |
+| **Typical pairing in this repo** | OpenAI Agents SDK **host** + `MCPServerStdio` | Pick one of CrewAI / LangGraph / AutoGen / OpenAI patterns |
+
+---
 
 ## When to choose one over another
 
@@ -227,6 +259,27 @@ So at a high level they’re all **orchestration layers** on top of “call the 
 
 5. **Pick AutoGen Core (+ distributed later)** when **routing and delivery** of messages matters as much as the LLM—e.g. custom protocols, multiple workers/processes, **gRPC**-style separation (as in your Week 5 teaser)—more **infrastructure** than “one notebook agent.”
 
+6. **Add MCP (`mcp`)** when you want **standardized, out-of-process tool/resource servers** (community MCP packages, Node-based browser tools, internal `FastMCP` services) composed into a host—**in this course**, usually **together with the OpenAI Agents SDK** (`MCPServerStdio`, `Agent`, `Runner`).
+
+---
+
+
+### Abstraction: “high level” vs “granular orchestration”
+
+It helps to separate **API surface area** (how many concepts you touch) from **control over workflow shape**:
+
+- **OpenAI Agents SDK** is **not** “low-level raw APIs” in the sense of hand-rolling HTTP to the model. It is a **small, high-level SDK**: a few core types (`Agent`, `Runner`, handoffs, tools) and the runtime fills in the tool loop. You get **less explicit control over global workflow** than in LangGraph because there is **no first-class graph**—orchestration is “agent + handoffs + tool calls,” which is simple and fast but **less granular** when you need custom branching, durable checkpoints, or HITL as graph edges.
+
+- **AutoGen** is **layered**: **AgentChat** (`AssistantAgent`, teams, message types) is **relatively high-level** for multi-agent **conversation**. **AutoGen Core** (`RoutedAgent`, runtime, `message_handler`) is **lower-level infrastructure**: you own more of routing and delivery. So AutoGen is **not** uniformly “higher level” than the OpenAI SDK—**AgentChat** vs **Core** sit at different heights.
+
+- **LangGraph** is where you typically get the **most granular, explicit orchestration** among these four: you define **state**, **nodes**, **edges**, **conditions**, and **checkpointers**. That is the right mental model for “I need fine control over the workflow,” not “LangGraph is low-level because it’s harder”—it’s **more explicit**, which is **more control**, not necessarily closer to the wire.
+
+- **CrewAI** is **high-level** in a *different* way: **roles, tasks, and process templates** hide a lot of wiring, but arbitrary cyclic graphs are **not** the default mental model compared to LangGraph.
+
+**Rule of thumb:** **OpenAI SDK** = **thin + high-level defaults** for agent/tool/handoff flows. **LangGraph** = **explicit orchestration graph**. **AutoGen AgentChat** = **high-level multi-agent chat**; **AutoGen Core** = **lower-level messaging/runtime**. **CrewAI** = **high-level crew / task pipeline**.
+
+---
+
 **Practical tie-breakers**
 
 - **Fastest path on OpenAI only** → Agents SDK.  
@@ -236,3 +289,5 @@ So at a high level they’re all **orchestration layers** on top of “call the 
 - **Custom distributed agent topology** → AutoGen Core (not the first choice for a simple app).
 
 Your **[`frameworks.md`](frameworks.md)** file still has the per-folder examples; this answer is the cross-cutting “same vs different vs choose” view on top of that.
+
+---
