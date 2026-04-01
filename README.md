@@ -120,7 +120,7 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | **SFT**              | Learning Paradigm  | Using labeled *input/output* data to teach a specific behavior.          |
 | **Full Fine-Tuning** | Resource Method    | Modifying **100%** of the model's weights during SFT.  [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/text_classification.py), [example-2](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/question_answering.py)                |
-| **PEFT Fine-Tuning (LoRA / QLoRA)**     | Resource Method    | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/fine_tuning.py), [example-2](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/fine_tuning/notebooks/2_fine-tuning_via_QLORA.ipynb) |
+| **PEFT Fine-Tuning (LoRA / QLoRA)**     | Resource Method    | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/fine_tuning.py), [example-2](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/fine_tuning/notebooks/2_fine-tuning_via_QLORA.ipynb), [example-3](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/workshop/Finetuning_Workshop_SFT_Demo_March28.ipynb) |
 
 ---
 
