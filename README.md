@@ -114,13 +114,13 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 
 ---
 
-### Fine-Tuning Terminology (SFT vs LoRA vs Full FT)
+### Fine-Tuning Terminology (SFT vs PEFT/LoRA/QLORA vs Full FT)
 
 | **Term**             | **Category**       | **What it describes**                                                     |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | **SFT**              | Learning Paradigm  | Using labeled *input/output* data to teach a specific behavior.          |
-| **Full Fine-Tuning** | Resource Method    | Modifying **100%** of the model's weights during SFT.                    |
-| **LoRA / QLoRA**     | Resource Method    | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). |
+| **Full Fine-Tuning** | Resource Method    | Modifying **100%** of the model's weights during SFT.  [example](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/text_classification.py)                  |
+| **PEFT Fine-Tuning (LoRA / QLoRA)**     | Resource Method    | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/fine_tuning.py) or [example-2](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/fine_tuning/notebooks/2_fine-tuning_via_QLORA.ipynb) |
 
 ---
 
@@ -137,7 +137,7 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 
 | **Stage** | **Goal**                          | **Typical method**                                   | **Notes**                                                                                           |
 |----------|------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| **Stage 1 – Task & domain (SFT)** | Teach domain knowledge, task behavior, and output format. | Supervised Fine-Tuning (SFT), usually with **LoRA / QLoRA** instead of full fine-tuning. | Parameter‑efficient; far less compute and memory than full FT, and often sufficient to ship a product. |
+| **Stage 1 – Task & domain (SFT)** | Teach domain knowledge, task behavior, and output format. | Supervised Fine-Tuning (SFT), usually with **PEFT (LoRA / QLoRA)** instead of full fine-tuning. | Parameter‑efficient; far less compute and memory than full FT, and often sufficient to ship a product. |
 | **Stage 2 – Alignment & refinement** | Refine style, helpfulness, safety, and response quality. | Preference-based alignment via **DPO** or **RLHF** on preference data. | Optional second pass; most valuable when UX and safety need additional optimization.                   |
 
 ---
