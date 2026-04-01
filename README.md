@@ -32,7 +32,7 @@ Course repos and materials are organized by track below.
 |-----------|----------|-----------------|
 | LangChain Basics | [ai-langchain-intro](https://github.com/aditya-caltechie/ai-langchain-intro) | Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications. |
 | Deep Learning | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
-| Transformers | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers) , [Illustration](https://jalammar.github.io/illustrated-transformer/) | All about Transformers |
+| Transformers | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers) | All about Transformers [Illustration](https://jalammar.github.io/illustrated-transformer/) |
 | Pre-Training LLM | [Link](https://www.deeplearning.ai/short-courses/pretraining-llms/) | TBD |
 | Fine-tuning (SFT) | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) and [Link](https://www.deeplearning.ai/short-courses/finetuning-large-language-models/) | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. |
 | RLHF pipeline | Todo | Yet to explore. |
