@@ -35,7 +35,7 @@ Course repos and materials are organized by track below.
 | Transformers | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers) | All about Transformers [Illustration](https://jalammar.github.io/illustrated-transformer/) |
 | Pre-Training LLM | [Link](https://www.deeplearning.ai/short-courses/pretraining-llms/) | TBD |
 | Fine-tuning (SFT) | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) and [Link](https://www.deeplearning.ai/short-courses/finetuning-large-language-models/) | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. |
-| RLHF pipeline | Todo | Yet to explore. |
+| RLHF pipeline | Todo | [Course](https://huggingface.co/learn). |
 | RAG | [ai-rag](https://github.com/aditya-caltechie/ai-rag) | Retrieval-augmented generation: vector stores, embeddings, and chaining retrievers with LLMs for knowledge-grounded answers. |
 | Agentic RAG| [ai-agentic-rag](https://github.com/aditya-caltechie/ai-agentic-rag) | Agentic RAG: agents that decide when and how to search and reason over retrieved context using LangChain/LangGraph-style patterns. |
 | AI Agent using Tools/loop & Workflows | [ai-deals2buy](https://github.com/aditya-caltechie/ai-deals2buy) | Capstone: AI agent for deals/shopping with LLM calls, tools, and agent logic. Two approaches: (a) loops & tools via `autonomous_planning_agent.py`, (b) workflow via `planning_agent.py`. |
