@@ -1,13 +1,4 @@
-<div align="center">
-<img src="assets/banner.png" alt="LLM Course">
-  <p align="center">
-    𝕏 <a href="https://twitter.com/maximelabonne">Follow me on X</a> • 
-    🤗 <a href="https://huggingface.co/mlabonne">Hugging Face</a> • 
-    💻 <a href="https://mlabonne.github.io/blog">Blog</a> • 
-    📙 <a href="https://packt.link/a/9781836200079">LLM Engineer's Handbook</a>
-  </p>
-</div>
-<br/>
+# ROADMAP :
 
 <a href="https://a.co/d/a2M67rE"><img align="right" width="25%" src="https://i.imgur.com/7iNjEq2.png" alt="LLM Engineer's Handbook Cover"/></a>The LLM course is divided into three parts:
 
@@ -15,8 +6,7 @@
 2. 🧑‍🔬 **The LLM Scientist** focuses on building the best possible LLMs using the latest techniques.
 3. 👷 **The LLM Engineer** focuses on creating LLM-based applications and deploying them.
 
-> [!NOTE]
-> Based on this course, I co-wrote the [LLM Engineer's Handbook](https://packt.link/a/9781836200079), a hands-on book that covers an end-to-end LLM application from design to deployment. The LLM course will always stay free, but you can support my work by purchasing this book.
+> Based on this course, we have the [LLM Engineer's Handbook](https://packt.link/a/9781836200079), a hands-on book that covers an end-to-end LLM application from design to deployment. The LLM course will always stay free, but you can support my work by purchasing this book.
 
 For a more comprehensive version of this course, check out the [DeepWiki](https://deepwiki.com/mlabonne/llm-course/).
 
