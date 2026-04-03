@@ -17,7 +17,7 @@ Both are after the original pre-training has already happened.
 ```
 Start
   ↓
-[Pre-training] ──────→ Base Model (e.g. Llama-3, TinySolar)
+[Pre-training] ──────→ Base Model (e.g. BERT, Llama-3, TinySolar)
                        │
                        ├── Continued Pre-training ──→ Domain-specialized model (your ai-pretraining repo). Make learn Korean, Python
                        │
@@ -26,16 +26,59 @@ Start
                        └── PEFT (LoRA/QLoRA) ────────→ Task-specific model (cheapest). Only few wights impacted.
 ```
 
-### Clarification: 
+### Clarification
 
+Nine-column Markdown tables often force **horizontal scrolling**. Below: a **narrow summary table** you can read in one glance, then **stacked detail blocks** (same information, full width).
 
-| Term | What it means | Builds NN from scratch? | Updates all weights? | Data used | Typical compute | Your repo example | Example models | Typical use cases |
-| ---- | ------------- | --------------------- | -------------------- | --------- | --------------- | ----------------- | -------------- | ----------------- |
-| **Pre-training** | First massive training phase to create a foundational/base model from random weights | Yes | Yes | Huge unlabeled text (trillions of tokens) | Extremely high (1000s of GPUs) | None of your repos (only big labs like Meta, xAI, Google do this) | **Llama 3**, **GPT-4 class**, **Gemini**, **Grok** — billion-parameter foundation LMs | General chat, code, reasoning, and multimodal bases; starting point for later FT, PEFT, or distillation |
-| **Continued Pre-training** | Take an existing base model + train more on new domain-specific data | No | Yes | More unlabeled text (domain data, e.g. Python code) | Medium (few GPUs) | `ai-pretraining` repo (TinySolar-248m + Python scripts) | **TinySolar-248M** (Korean + code), **CodeLlama** (code extension of Llama), domain “second stage” checkpoints | Shift vocabulary and style toward **finance, law, biomedicine, multilingual**, or **more code** before task-specific fine-tuning |
-| **Full Fine-Tuning (Full Training)** | Take a pre-trained model + update every weight on task-specific data | No | Yes | Smaller labeled task data (classification, QA, etc.) | High (multiple GPUs) | `ai-transformers/Week-3/full-fine-tuning` (BERT on IMDb & SQuAD) | **BERT-base** (IMDb sentiment, SQuAD QA in your labs); **Llama / Mistral** fully updated on instruction or domain JSONL | **Classification**, **extractive QA**, **NER**, **custom instruction** chatbots where you can afford full-weight updates |
-| **PEFT (LoRA, QLoRA, etc.)** | Take a pre-trained model + update only a tiny fraction of parameters using adapters | No | No (only ~0.1–5%) | Same as fine-tuning (labeled task data) | Very low (even on 1 GPU or Colab) | `ai-transformers/Week-3/peft-fine-tuning` (contains examples with LoRA/QLoRA) | Same families as full FT: **Llama 3 8B**, **Mistral 7B**, **Qwen2.5** — adapters sit on top | **Fast iteration**, **low VRAM**, many **small vertical adapters** (support triage, tone, tags) from one frozen base |
-| **From-Scratch NN** | Define and build the entire neural network architecture yourself | Yes | Yes | Any (usually small dataset for learning) | Low to Medium | `ai-deep-learning/src/core/deep_neural_network.py` | **Custom MLP** / small nets in course code; toy **CNNs** on MNIST-style data in tutorials | **Teaching** backprop and layers; **baselines** and **ablations**; tiny **embedded** or **specialized** models where a pretrained LM is not the goal |
+#### At a glance
+
+| Style | Builds NN from scratch? | Updates all weights? | Typical compute |
+| ----- | ----------------------- | -------------------- | --------------- |
+| Pre-training | Yes | Yes | Very high (1000s of GPUs) |
+| Continued pre-training | No | Yes | Medium (few GPUs) |
+| Full fine-tuning | No | Yes | High (multi-GPU) |
+| PEFT (LoRA / QLoRA) | No | No (~0.1–5% params) | Low (1 GPU / Colab OK) |
+| From-scratch NN | Yes | Yes | Low–medium |
+
+#### Pre-training
+
+- **What it is:** Massive first training phase to build a foundational/base model from (near-)random weights.
+- **Data:** Huge unlabeled text (trillions of tokens).
+- **Your repo:** None (labs like Meta, xAI, Google-scale).
+- **Example models:** Llama 3, GPT-4–class, Gemini, Grok — large foundation LMs.
+- **Typical use cases:** General chat, code, reasoning, multimodal bases; starting point for later full FT, PEFT, or distillation.
+
+#### Continued pre-training
+
+- **What it is:** Start from an existing base and train further on new domain-heavy **unlabeled** text.
+- **Data:** More unlabeled text (e.g. Python, Korean, legal, biomedical corpora).
+- **Your repo:** `ai-pretraining` (TinySolar-248M + Python scripts).
+- **Example models:** TinySolar-248M (Korean + code), CodeLlama-style extensions of Llama, other “second stage” checkpoints.
+- **Typical use cases:** Shift vocabulary and style toward finance, law, medicine, multilingual, or code **before** task-specific fine-tuning.
+
+#### Full fine-tuning (full training)
+
+- **What it is:** Pre-trained model + **every weight** updated on task-specific (often labeled) data.
+- **Data:** Smaller labeled sets — classification, QA, instructions, etc.
+- **Your repo:** `ai-transformers/Week-3/full-fine-tuning` (BERT on IMDb & SQuAD).
+- **Example models:** BERT-base in your labs; Llama / Mistral fully updated on instruction or domain JSONL.
+- **Typical use cases:** Sentiment, extractive QA, NER, custom instruction chatbots when you can afford full-weight training.
+
+#### PEFT (LoRA, QLoRA, …)
+
+- **What it is:** Pre-trained model + **small adapter** weights; base mostly frozen.
+- **Data:** Same kinds as full fine-tuning (labeled / instruction data).
+- **Your repo:** `ai-transformers/Week-3/peft-fine-tuning` (LoRA / QLoRA examples).
+- **Example models:** Llama 3 8B, Mistral 7B, Qwen2.5 — adapters on top of the same families you’d full FT.
+- **Typical use cases:** Fast iteration, low VRAM, many small vertical adapters (support triage, tone, tagging) from one frozen base.
+
+#### From-scratch neural network
+
+- **What it is:** You define the full architecture (layers, shapes) yourself — educational or small-scale training.
+- **Data:** Any; usually a **small** dataset for learning or demos.
+- **Your repo:** `ai-deep-learning/src/core/deep_neural_network.py`.
+- **Example models:** Custom MLPs; small CNNs on MNIST-style data in tutorials.
+- **Typical use cases:** Teaching backprop and layer design; baselines and ablations; tiny embedded or specialized models where a pretrained LM is not the goal.
 
 
 1. Is pretraining same as building own NN model from scratch?
