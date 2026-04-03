@@ -119,6 +119,43 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 
 ---
 
+
+### LLM training stages — overview & deep dive
+
+**What this is:** A single mental model for how **foundation pre-training**, **continued pre-training**, **full fine-tuning**, and **PEFT** line up with the **LLM Core** repos in this learning path — and how that differs from **building a small neural net from scratch** (architecture literacy in `ai-deep-learning`).
+
+**Full guide** (ASCII mind maps, at-a-glance table, per-stage detail, FAQ): **[`Training.md`](Training.md)**
+
+**High-level flow (ASCII):**
+
+```
+FOUNDATION PRE-TRAINING (big labs: random/near-random init + huge unlabeled text)
+         │
+         ▼
+   ┌─────────────┐
+   │ BASE MODEL  │  e.g. BERT, Llama  — you usually load this checkpoint
+   └──────┬──────┘
+          │
+   ┌──────┴────────────────────────────────────────────┐
+   │                                                    │
+   ▼                                                    ▼
+CONTINUED PRE-TRAINING                         TASK ADAPTATION
+more UNLABELED domain data                     labeled / instruction data
+   │                                                    │
+   ▼                                          ┌─────────┴─────────┐
+ TinySolar-style                              ▼                   ▼
+ ai-pretraining repo                    FULL FINE-TUNING    PEFT (LoRA / QLoRA)
+                                        all weights         adapters only
+                                        Week-3/full-…       Week-3/peft-…
+
+
+PARALLEL (education):  ai-deep-learning  →  layers + forward + small data
+                        (not the same as web-scale foundation pre-training)
+```
+
+For repo names, tables, and “true pre-training vs continued pre-training,” open **[`Training.md`](Training.md)**.
+
+---
 ### Fine-Tuning Terminology (SFT vs PEFT/LoRA/QLORA vs Full FT)
 
 | **Term**             | **Category**       | **What it describes**                                                     |
