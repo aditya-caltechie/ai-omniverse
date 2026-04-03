@@ -7,7 +7,7 @@ This repo is a curated learning path covering the full spectrum of modern AI and
 
 |   **Area**   | **Coverage** |
 |--------------|--------------|
-| **Traditional ML** | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation. |
+| **Traditional ML** | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation. [Github](https://github.com/aditya-caltechie/handson-mlp)|
 | **Deep Learning** | Neural networks, CNNs, RNNs, transformers, and training at scale. |
 | **Gen AI & LLMs** | Building applications with large language models: prompting, RAG, advance RAG, agentic RAG, and deployment. |
 | **Fine Tuning (SFT)** | Fine-tuning small language models ( PEFT e.g. LoRA, QLoRA, adapters) on custom data. You can perform SFT using Full Fine-Tuning (expensive) or LoRA/QLoRA (efficient).|
@@ -25,22 +25,29 @@ Course repos and materials are organized by track below.
 
 
 ---
-
-## 1. LLM Core Track
+## 1. Foundation
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
-| LangChain Basics | [ai-langchain-intro](https://github.com/aditya-caltechie/ai-langchain-intro) | Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications. |
+| Traditional ML | -- | -- |
 | Deep Learning | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
-| Fine-tuning (SFT) | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. |
-| RLHF pipeline | Todo | Yet to explore. |
+
+## 2. LLM Core Track
+
+| **Topic** | **Repo** | **Description** |
+|-----------|----------|-----------------|
+| Transformers | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers) | All about Transformers [Illustration](https://jalammar.github.io/illustrated-transformer/) |
+| Pre-Training LLM | [ai-pretraining](https://github.com/aditya-caltechie/ai-pretraining/tree/main) | why and when Pre-training is useful and needed |
+| Fine-tuning (SFT) | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) and [Link](https://www.deeplearning.ai/short-courses/finetuning-large-language-models/) | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. |
+| RLHF pipeline | Todo | [Course](https://huggingface.co/learn). |
+| LangChain Basics | [ai-langchain-intro](https://github.com/aditya-caltechie/ai-langchain-intro) | Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications. |
 | RAG | [ai-rag](https://github.com/aditya-caltechie/ai-rag) | Retrieval-augmented generation: vector stores, embeddings, and chaining retrievers with LLMs for knowledge-grounded answers. |
 | Agentic RAG| [ai-agentic-rag](https://github.com/aditya-caltechie/ai-agentic-rag) | Agentic RAG: agents that decide when and how to search and reason over retrieved context using LangChain/LangGraph-style patterns. |
 | AI Agent using Tools/loop & Workflows | [ai-deals2buy](https://github.com/aditya-caltechie/ai-deals2buy) | Capstone: AI agent for deals/shopping with LLM calls, tools, and agent logic. Two approaches: (a) loops & tools via `autonomous_planning_agent.py`, (b) workflow via `planning_agent.py`. |
 
 ---
 
-## 2. Agentic Core Track
+## 3. Agentic Core Track
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
@@ -60,7 +67,7 @@ Course repos and materials are organized by track below.
 
 ---
 
-## 3. MLOps Track
+## 4. MLOps Track
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
@@ -112,13 +119,13 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 
 ---
 
-### Fine-Tuning Terminology (SFT vs LoRA vs Full FT)
+### Fine-Tuning Terminology (SFT vs PEFT/LoRA/QLORA vs Full FT)
 
 | **Term**             | **Category**       | **What it describes**                                                     |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | **SFT**              | Learning Paradigm  | Using labeled *input/output* data to teach a specific behavior.          |
-| **Full Fine-Tuning** | Resource Method    | Modifying **100%** of the model's weights during SFT.                    |
-| **LoRA / QLoRA**     | Resource Method    | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). |
+| **Full Fine-Tuning** | Resource Method    | Modifying **100%** of the model's weights during SFT.  [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/text_classification.py), [example-2](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/question_answering.py)                |
+| **PEFT Fine-Tuning (LoRA / QLoRA)**     | Resource Method    | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/fine_tuning.py), [example-2](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/fine_tuning/notebooks/2_fine-tuning_via_QLORA.ipynb), [example-3](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/workshop/Finetuning_Workshop_SFT_Demo_March28.ipynb) |
 
 ---
 
@@ -135,7 +142,7 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 
 | **Stage** | **Goal**                          | **Typical method**                                   | **Notes**                                                                                           |
 |----------|------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| **Stage 1 – Task & domain (SFT)** | Teach domain knowledge, task behavior, and output format. | Supervised Fine-Tuning (SFT), usually with **LoRA / QLoRA** instead of full fine-tuning. | Parameter‑efficient; far less compute and memory than full FT, and often sufficient to ship a product. |
+| **Stage 1 – Task & domain (SFT)** | Teach domain knowledge, task behavior, and output format. | Supervised Fine-Tuning (SFT), usually with **PEFT (LoRA / QLoRA)** instead of full fine-tuning. | Parameter‑efficient; far less compute and memory than full FT, and often sufficient to ship a product. |
 | **Stage 2 – Alignment & refinement** | Refine style, helpfulness, safety, and response quality. | Preference-based alignment via **DPO** or **RLHF** on preference data. | Optional second pass; most valuable when UX and safety need additional optimization.                   |
 
 ---
