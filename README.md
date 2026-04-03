@@ -29,7 +29,7 @@ Course repos and materials are organized by track below.
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
-| Traditional ML | -- | -- |
+| Traditional ML | Todo | Todo |
 | Deep Learning (**optional**) | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Building your own NN from scratch. It also has workshop which covers - Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
 
 ## 2. LLM Core Track
@@ -39,7 +39,7 @@ Course repos and materials are organized by track below.
 | Transformers | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers) | All about Transformers. High-level APIs for Inference. Low-level APIs for fine-tuning [Illustration](https://jalammar.github.io/illustrated-transformer/) |
 | Pre-Training LLM (**optional**) | [ai-pretraining](https://github.com/aditya-caltechie/ai-pretraining/tree/main) | Continous Pre-training. why and when its useful and needed |
 | Fine-tuning (SFT) - PEFT/LORA | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. This also has workshop section from March28. Material from DeepLearning.ai course as well for reference.|
-| RLHF pipeline (**optional**) | Todo | [Course](https://huggingface.co/learn) |
+| RLHF pipeline (**optional**) | [Course](https://huggingface.co/learn)| Todo |
 | LangChain Basics | [ai-langchain-intro](https://github.com/aditya-caltechie/ai-langchain-intro) | Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications. |
 | RAG | [ai-rag](https://github.com/aditya-caltechie/ai-rag) | Retrieval-augmented generation: vector stores, embeddings, and chaining retrievers with LLMs for knowledge-grounded answers. |
 | Agentic RAG| [ai-agentic-rag](https://github.com/aditya-caltechie/ai-agentic-rag) | Agentic RAG: agents that decide when and how to search and reason over retrieved context using LangChain/LangGraph-style patterns. |
