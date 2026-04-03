@@ -25,14 +25,13 @@ Start
                        └── PEFT (LoRA/QLoRA) ────────→ Task-specific model (cheapest). Only few wights impacted.
 ```
 
-```
-Term,What it means,Builds NN from scratch?,Updates all weights?,Data used,Typical compute,Your repo example
-Pre-training,First massive training phase to create a foundational/base model from random weights,Yes,Yes,Huge unlabeled text (trillions of tokens),Extremely high (1000s of GPUs),"None of your repos (only big labs like Meta, xAI, Google do this)"
-Continued Pre-training,Take an existing base model + train more on new domain-specific data,No,Yes,"More unlabeled text (domain data, e.g. Python code)",Medium (few GPUs),ai-pretraining repo (TinySolar-248m + Python scripts)
-Full Fine-Tuning (Full Training),Take a pre-trained model + update every weight on task-specific data,No,Yes,"Smaller labeled task data (classification, QA, etc.)",High (multiple GPUs),ai-transformers/Week-3/full-fine-tuning (BERT on IMDb & SQuAD)
-"PEFT (LoRA, QLoRA, etc.)",Take a pre-trained model + update only a tiny fraction of parameters using adapters,No,No (only ~0.1–5%),Same as fine-tuning (labeled task data),Very low (even on 1 GPU or Colab),ai-transformers/Week-3/peft-fine-tuning (contains examples with LoRA/QLoRA)
-From-Scratch NN,Define and build the entire neural network architecture yourself,Yes,Yes,Any (usually small dataset for learning),Low to Medium,ai-deep-learning/src/core/deep_neural_network.py
-```
+| Term | What it means | Builds NN from scratch? | Updates all weights? | Data used | Typical compute | Your repo example |
+|------|---------------|-------------------------|---------------------|-----------|-----------------|-------------------|
+| **Pre-training** | First massive training phase to create a foundational/base model from random weights | Yes | Yes | Huge unlabeled text (trillions of tokens) | Extremely high (1000s of GPUs) | None of your repos (only big labs like Meta, xAI, Google do this) |
+| **Continued Pre-training** | Take an existing base model + train more on new domain-specific data | No | Yes | More unlabeled text (domain data, e.g. Python code) | Medium (few GPUs) | `ai-pretraining` repo (TinySolar-248m + Python scripts) |
+| **Full Fine-Tuning (Full Training)** | Take a pre-trained model + update every weight on task-specific data | No | Yes | Smaller labeled task data (classification, QA, etc.) | High (multiple GPUs) | `ai-transformers/Week-3/full-fine-tuning` (BERT on IMDb & SQuAD) |
+| **PEFT (LoRA, QLoRA, etc.)** | Take a pre-trained model + update only a tiny fraction of parameters using adapters | No | No (only ~0.1–5%) | Same as fine-tuning (labeled task data) | Very low (even on 1 GPU or Colab) | `ai-transformers/Week-3/peft-fine-tuning` (contains examples with LoRA/QLoRA) |
+| **From-Scratch NN** | Define and build the entire neural network architecture yourself | Yes | Yes | Any (usually small dataset for learning) | Low to Medium | `ai-deep-learning/src/core/deep_neural_network.py` |
 
 1. Is pretraining same as building own NN model from scratch?
 No, they are not the same, but they are related.
