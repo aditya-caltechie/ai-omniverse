@@ -81,21 +81,33 @@ Nine-column Markdown tables often force **horizontal scrolling**. Below: a **nar
 - **Typical use cases:** Teaching backprop and layer design; baselines and ablations; tiny embedded or specialized models where a pretrained LM is not the goal.
 
 
-1. Is pretraining same as building own NN model from scratch?
+### FAQ: pre-training vs building a NN vs continued pre-training
 
-No, they are not the same, but they are related.
+#### 1. Is “pre-training” the same as building your own NN from scratch?
 
-Building own NN from scratch = You manually define the architecture (layers, attention heads, embeddings, etc.) using torch.nn.Module. This is what your deep_neural_network.py does.
-Pre-training = After you have the architecture, you train it on massive unlabeled data with random initialization. This is the extremely expensive first step that only big companies do.
+**No — they overlap, but they are not the same thing.**
 
-In practice:
+- **Build NN from scratch** — You **define the architecture** (layers, heads, embeddings, …) with `torch.nn.Module`. Example: `deep_neural_network.py` — *structure and forward pass*, not necessarily web-scale training.
 
-True Pre-training = Building NN from scratch + training on trillions of tokens.
-Your deep_neural_network.py = Only the “building architecture” part (for learning/education). It usually doesn’t do full-scale pre-training.
+- **True foundation pre-training** — **Architecture + (usually fresh) initialization + massive training on huge unlabeled data** (billions/trillions of tokens). That **whole pipeline** creates a **new base** model (Llama-scale, GPT-scale, etc.). Expensive; mostly big labs.
 
-1. Where does deep_neural_network.py fit?
+- **Continued pre-training** — You **start from an existing base checkpoint** (BERT, TinySolar, Llama, …) and train **further** on **domain** unlabeled text. You are **not** redoing foundation pre-training from random init at that scale — you are **nudging** an already-trained model.
 
-It sits at the very beginning — it teaches you how the Neural Network is actually constructed. All other repos (ai-pretraining, full-fine-tuning, peft-fine-tuning) skip this step and directly load a ready-made pre-trained model (BERT, TinySolar, etc.).
+**The part to remember:**
+
+> **True pre-training** ≈ *new base* = **NN (specified architecture) + huge unlabeled data + massive compute**.  
+> **Continued pre-training** ≈ *same lineage, new domain* = **existing pretrained weights + more unlabeled data in your niche** (your `ai-pretraining` / TinySolar story).
+
+**Where `deep_neural_network.py` fits:** it teaches **how a network is constructed**. It is **not**, by itself, “true pre-training” — you’d still need the **massive data + training run** to match what Meta/xAI/Google call pre-training.
+
+#### 2. Where does `deep_neural_network.py` sit in the learning path?
+
+**At the very beginning conceptually** — before you skip straight to Hugging Face checkpoints.
+
+- It shows **how** a neural net is built (layers, tensors, training step).
+- Repos like **`ai-pretraining`**, **`full-fine-tuning`**, **`peft-fine-tuning`** usually **load a ready-made pretrained model** (BERT, TinySolar, …) and **do not** redefine a full LM architecture from scratch in that repo.
+
+So: **architecture literacy** (`deep_neural_network.py`) → later courses assume **someone else already ran** foundation pre-training (or you do **continued** pre-training / fine-tuning on top).
 
 ### Simple Flow – Complete Picture
 
