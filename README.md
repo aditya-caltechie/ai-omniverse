@@ -25,24 +25,29 @@ Course repos and materials are organized by track below.
 
 
 ---
-
-## 1. LLM Core Track
+## 1. Foundation
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
-| LangChain Basics | [ai-langchain-intro](https://github.com/aditya-caltechie/ai-langchain-intro) | Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications. |
+| Traditional ML | -- | -- |
 | Deep Learning | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
+
+## 2. LLM Core Track
+
+| **Topic** | **Repo** | **Description** |
+|-----------|----------|-----------------|
 | Transformers | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers) | All about Transformers [Illustration](https://jalammar.github.io/illustrated-transformer/) |
-| Pre-Training LLM | [a-pretraining](https://github.com/aditya-caltechie/ai-pretraining/tree/main) | why and when Pre-training is useful and needed |
+| Pre-Training LLM | [ai-pretraining](https://github.com/aditya-caltechie/ai-pretraining/tree/main) | why and when Pre-training is useful and needed |
 | Fine-tuning (SFT) | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) and [Link](https://www.deeplearning.ai/short-courses/finetuning-large-language-models/) | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. |
 | RLHF pipeline | Todo | [Course](https://huggingface.co/learn). |
+| LangChain Basics | [ai-langchain-intro](https://github.com/aditya-caltechie/ai-langchain-intro) | Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications. |
 | RAG | [ai-rag](https://github.com/aditya-caltechie/ai-rag) | Retrieval-augmented generation: vector stores, embeddings, and chaining retrievers with LLMs for knowledge-grounded answers. |
 | Agentic RAG| [ai-agentic-rag](https://github.com/aditya-caltechie/ai-agentic-rag) | Agentic RAG: agents that decide when and how to search and reason over retrieved context using LangChain/LangGraph-style patterns. |
 | AI Agent using Tools/loop & Workflows | [ai-deals2buy](https://github.com/aditya-caltechie/ai-deals2buy) | Capstone: AI agent for deals/shopping with LLM calls, tools, and agent logic. Two approaches: (a) loops & tools via `autonomous_planning_agent.py`, (b) workflow via `planning_agent.py`. |
 
 ---
 
-## 2. Agentic Core Track
+## 3. Agentic Core Track
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
@@ -62,7 +67,7 @@ Course repos and materials are organized by track below.
 
 ---
 
-## 3. MLOps Track
+## 4. MLOps Track
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
