@@ -30,14 +30,14 @@ Course repos and materials are organized by track below.
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
 | Traditional ML | -- | -- |
-| Deep Learning | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
+| Deep Learning | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Building your own NN from scratch. It also has workshop which covers - Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
 
 ## 2. LLM Core Track
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
-| Transformers | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers) | All about Transformers [Illustration](https://jalammar.github.io/illustrated-transformer/) |
-| Pre-Training LLM | [ai-pretraining](https://github.com/aditya-caltechie/ai-pretraining/tree/main) | why and when Pre-training is useful and needed |
+| Transformers | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers) | All about Transformers. High-level APIs for Inference. Low-level APIs for fine-tuning [Illustration](https://jalammar.github.io/illustrated-transformer/) |
+| Pre-Training LLM | [ai-pretraining](https://github.com/aditya-caltechie/ai-pretraining/tree/main) | Continous Pre-training. why and when its useful and needed |
 | Fine-tuning (SFT) | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning) and [Link](https://www.deeplearning.ai/short-courses/finetuning-large-language-models/) | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. |
 | RLHF pipeline | Todo | [Course](https://huggingface.co/learn). |
 | LangChain Basics | [ai-langchain-intro](https://github.com/aditya-caltechie/ai-langchain-intro) | Introduction to LangChain: chains, prompts, output parsers, and connecting to LLMs. Covers the core building blocks for LLM applications. |
