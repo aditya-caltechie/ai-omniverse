@@ -136,7 +136,7 @@ FOUNDATION PRE-TRAINING (big labs: random/near-random init + huge unlabeled text
    │ BASE MODEL  │  e.g. BERT, Llama  — you usually load this checkpoint
    └──────┬──────┘
           │
-   ┌──────┴────────────────────────────────────────────┐
+   ┌──────┴────────────────────────────────────────-────┐
    │                                                    │
    ▼                                                    ▼
 CONTINUED PRE-TRAINING                         TASK ADAPTATION
