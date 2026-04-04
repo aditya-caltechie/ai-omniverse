@@ -39,6 +39,8 @@ Besides that, there are two major concept :
 1. **Inference techniques** ( Prompt Engg, RAG, Agentic-RAG ).
 2. **Training techniques**  ( Fine-tuning - Full-fine-tuning / PEFT(LORA/QLORA )).
 
+**In-repo guides:** **[`LLM_CORE_TRACK.md`](LLM_CORE_TRACK.md)** (week-by-week map) · **[`LLM-TRAINING.md`](LLM-TRAINING.md)** (pre-train / FT / PEFT stages) · **[`FINE-TUNING.md`](FINE-TUNING.md)** (SFT, LoRA, QLoRA, prompt tuning)
+
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
 | Transformers | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers) | All about Transformers. High-level APIs for Inference. Low-level APIs for fine-tuning [Illustration](https://jalammar.github.io/illustrated-transformer/) |
@@ -53,6 +55,8 @@ Besides that, there are two major concept :
 ---
 
 ## 3. Agentic Core Track
+
+**In-repo guide:** **[`AGENTIC_TRACK.md`](AGENTIC_TRACK.md)** (framework comparison, Mermaid diagrams, MCP vs orchestration)
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
@@ -85,6 +89,42 @@ Besides that, there are two major concept :
 | **Repo** | **Description** |
 |----------|-----------------|
 | [ai-tutorial-notes](https://github.com/aditya-caltechie/ai-tutorial-notes) | Consolidated notes and references from Udemy AI/ML courses. Quick lookup for concepts, commands, and patterns used across the tracks. |
+
+---
+
+## Track guides and mental maps
+
+These files **thread the same topics** as the repo tracks and the **Appendix** further down this README, but as **guided narratives** (week arcs, training stages, fine-tuning choices, agent stacks). Open them when you want diagrams and FAQs, not only quick definitions.
+
+| Doc | What it covers | Theory in one line |
+|-----|----------------|-------------------|
+| **[`LLM_CORE_TRACK.md`](LLM_CORE_TRACK.md)** | Full **LLM engineering** arc (weeks, capstone) | **Inference-time** path (APIs → Hugging Face → RAG + eval) runs in parallel with **weight-time** adaptation (data → baselines → fine-tuning / QLoRA); **Week 8** hybrid combines RAG, frontier models, fine-tuned specialists, and agents. |
+| **[`LLM-TRAINING.md`](LLM-TRAINING.md)** | **Pre-training vs fine-tuning** vs education | **Foundation pre-training** builds the base checkpoint; **continued pre-training** nudges it on more unlabeled domain text; **full FT** and **PEFT** adapt on task data; **`ai-deep-learning`** teaches architecture + small-data training—not web-scale foundation PT. |
+| **[`FINE-TUNING.md`](FINE-TUNING.md)** | **SFT** and parameter-efficient methods | **SFT** teaches behavior from labeled pairs; **full FT** updates all weights; **LoRA / QLoRA** train small adapters; **prompt / prefix tuning** steers the model with few trainable parameters. |
+| **[`AGENTIC_TRACK.md`](AGENTIC_TRACK.md)** | **Agent frameworks** + MCP | Shared base: **LLM + tools + multi-step control**; compare **OpenAI Agents SDK**, **CrewAI**, **LangGraph**, **AutoGen** by orchestration style; **MCP** is a **tool/resource protocol**, not a replacement for those orchestrators. |
+
+### How the guides connect (ASCII mind map)
+
+```
+                         [ LLM_CORE_TRACK.md ]
+                    full curriculum arc + week flow
+                                 |
+         +-----------------------+-----------------------+
+         |                       |                       |
+         v                       v                       v
+  LLM-TRAINING.md          FINE-TUNING.md         AGENTIC_TRACK.md
+  stages: foundation /    how to adapt          stacks: handoffs,
+  continued PT / FT /      weights: SFT,         crews, graphs,
+  PEFT vs scratch NN       full, LoRA, prompts   teams, MCP
+         |                       |                       |
+         +-----------------------+-----------------------+
+                                 |
+                                 v
+              Product picture: RAG + adapted weights + agent orchestration
+              (matches Week 8 / capstone style integrations in the track doc)
+```
+
+**Appendix** (below) keeps **short tables** (framework buckets, SFT vs PEFT vs full FT, alignment stages, RLHF sketch). Use it for a fast lookup; use the row’s **`.md` guide** for flowcharts and longer explanations.
 
 ---
 # Appendix :
@@ -122,43 +162,7 @@ It's a **low-level orchestration framework** / agent runtime built around explic
 #### MCP (Model Context Protocol) :
 It is even further removed — it's not a framework at all. It's a protocol/standard. It just defines a clean, standardized way for any agent to discover and call tools/context/resources from MCP servers.
 
----
-
-
-### LLM training stages — overview & deep dive
-
-**What this is:** A single mental model for how **foundation pre-training**, **continued pre-training**, **full fine-tuning**, and **PEFT** line up with the **LLM Core** repos in this learning path — and how that differs from **building a small neural net from scratch** (architecture literacy in `ai-deep-learning`).
-
-**Full guide** (ASCII mind maps, at-a-glance table, per-stage detail, FAQ): **[`Training.md`](Training.md)**
-
-**High-level flow (ASCII):**
-
-```
-FOUNDATION PRE-TRAINING (big labs: random/near-random init + huge unlabeled text)
-         │
-         ▼
-   ┌─────────────┐
-   │ BASE MODEL  │  e.g. BERT, Llama  — you usually load this checkpoint
-   └──────┬──────┘
-          │
-   ┌──────┴────────────────────────────────────────-────┐
-   │                                                    │
-   ▼                                                    ▼
-CONTINUED PRE-TRAINING                         TASK ADAPTATION
-more UNLABELED domain data                     labeled / instruction data
-   │                                                    │
-   ▼                                          ┌─────────┴─────────┐
- TinySolar-style                              ▼                   ▼
- ai-pretraining repo                    FULL FINE-TUNING    PEFT (LoRA / QLoRA)
-                                        all weights         adapters only
-                                        Week-3/full-…       Week-3/peft-…
-
-
-PARALLEL (education):  ai-deep-learning  →  layers + forward + small data
-                        (not the same as web-scale foundation pre-training)
-```
-
-For repo names, tables, and “true pre-training vs continued pre-training,” open **[`Training.md`](Training.md)**.
+> **Training-stage diagram (foundation PT → base → continued PT / FT / PEFT):** see **[`LLM-TRAINING.md`](LLM-TRAINING.md)** in [Track guides and mental maps](#track-guides-and-mental-maps) above.
 
 ---
 ### Fine-Tuning Terminology (SFT vs PEFT/LoRA/QLORA vs Full FT)
