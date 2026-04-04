@@ -25,14 +25,19 @@ Course repos and materials are organized by track below.
 
 
 ---
-## 1. Foundation
+## 1. AL/ML Foundation
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
-| Traditional ML | Todo | Todo |
+| Traditional ML (**optional**)| Todo | Todo |
 | Deep Learning (**optional**) | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Building your own NN from scratch. It also has workshop which covers - Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
 
 ## 2. LLM Core Track
+
+**Transformers** are the modern day hero. All LLM are based on transformer architecture. 
+Besides that, there are two major concept : 
+1. **Inference techniques** ( Prompt Engg, RAG, Agentic-RAG ).
+2. **Training techniques**  ( Fine-tuning - Full-fine-tuning / PEFT(LORA/QLORA )).
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
