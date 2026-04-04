@@ -194,3 +194,76 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 | **Stage 1 – Task & domain (SFT)** | Teach domain knowledge, task behavior, and output format. | Supervised Fine-Tuning (SFT), usually with **PEFT (LoRA / QLoRA)** instead of full fine-tuning. | Parameter‑efficient; far less compute and memory than full FT, and often sufficient to ship a product. |
 | **Stage 2 – Alignment & refinement** | Refine style, helpfulness, safety, and response quality. | Preference-based alignment via **DPO** or **RLHF** on preference data. | Optional second pass; most valuable when UX and safety need additional optimization.                   |
 
+---
+```
+              ┌────────────────────┐
+              │   Pretraining      │
+              │ (Huge data, $$$)   │
+              └────────┬───────────┘
+                       ↓
+              ┌────────────────────┐
+              │  Base Model        │
+              └────────┬───────────┘
+                       ↓
+        ┌────────────────────────────────┐
+        │  Supervised Fine-Tuning (SFT)  │
+        │  - Instruction tuning          │
+        │  - Domain tuning               │
+        └────────┬───────────────────-───┘
+                 ↓
+        ┌────────────────────────────────┐
+        │  HOW to fine-tune (Technique)  │
+        │  - Full FT                     │
+        │  - PEFT (LoRA, QLoRA)          │
+        └────────┬────────────────────-──┘
+                 ↓
+        ┌────────────────────────────────┐
+        │ Alignment Stage (Post Training)│
+        │  - RLHF (uses PPO)             │
+        │  - DPO                         |
+        |  - RL (PPO etc.)               │
+        └────────┬────────────────────-──┘
+                 ↓
+          ┌────────────────────┐
+          │ Final Assistant    │
+          └────────────────────┘
+```
+
+#### End to end pipeline:
+
+```
+1. Pick base model (LLaMA / Mistral)
+2. Prepare dataset (instruction format)
+3. Run Fine-tuning: SFT + LoRA  
+4. (Optional) Run DPO for alignment
+5. Save + merge adapters
+6. Serve using vLLM
+7. Build app using LangChain
+```
+
+**BEST PRACTICAL STACK**
+
+```
+HuggingFace Transformers → loads model  (Model: Mistral / LLaMA )
+        ↓
+PEFT (LoRA) → makes tuning cheap
+        ↓
+Trainer / TRL → runs SFT / DPO
+        ↓
+vLLM → serves model fast
+        ↓
+LangChain → builds app/agent
+```
+
+
+
+
+There are 3 main steps:
+- PreTraining - (Mostly done by Giants like Google, Meta)
+- Fine-Tuning (SFT- FT/PEFT for domain training)
+- Reinforcement Learning (RLHF/DPO) - Optional
+
+👉 SFT teaches the model WHAT to say
+👉 PEFT makes it CHEAP to train
+👉 DPO/RLHF teaches HOW to behave
+
