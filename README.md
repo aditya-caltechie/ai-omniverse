@@ -39,7 +39,7 @@ Besides that, there are two major concept :
 1. **Inference techniques** ( Prompt Engg, RAG, Agentic-RAG ).
 2. **Training techniques**  ( Fine-tuning - Full-fine-tuning / PEFT(LORA/QLORA )).
 
-**In-repo guides:** **[`LLM_CORE_TRACK.md`](LLM_CORE_TRACK.md)** (week-by-week map) · **[`LLM-TRAINING.md`](LLM-TRAINING.md)** (pre-train / FT / PEFT stages) · **[`FINE-TUNING.md`](FINE-TUNING.md)** (SFT, LoRA, QLoRA, prompt tuning)
+Refer: **[`LLM_CORE_TRACK.md`](LLM_CORE_TRACK.md)** (week-by-week map) · **[`LLM-TRAINING.md`](LLM-TRAINING.md)** (pre-train / FT / PEFT stages) · **[`FINE-TUNING.md`](FINE-TUNING.md)** (SFT, LoRA, QLoRA, prompt tuning)
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
