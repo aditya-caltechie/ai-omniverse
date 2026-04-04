@@ -39,7 +39,11 @@ Besides that, there are two major concept :
 1. **Inference techniques** ( Prompt Engg, RAG, Agentic-RAG ).
 2. **Training techniques**  ( Fine-tuning - Full-fine-tuning / PEFT(LORA/QLORA )).
 
-In-repo guide: **[`LLM_CORE_TRACK.md`](LLM_CORE_TRACK.md)** (week-by-week map) · **[`LLM-TRAINING.md`](LLM-TRAINING.md)** (pre-train / FT / PEFT stages) · **[`FINE-TUNING.md`](FINE-TUNING.md)** (SFT, LoRA, QLoRA, prompt tuning)
+In-repo guide: 
+**[`LLM_CORE_TRACK.md`](LLM_CORE_TRACK.md)** (week-by-week map) · 
+**[`LLM-TRAINING.md`](LLM-TRAINING.md)** (pre-train / FT / PEFT stages) · 
+**[`FINE-TUNING.md`](FINE-TUNING.md)** (SFT, LoRA, QLoRA, prompt tuning)
+
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
@@ -56,7 +60,7 @@ In-repo guide: **[`LLM_CORE_TRACK.md`](LLM_CORE_TRACK.md)** (week-by-week map) �
 
 ## 3. Agentic Core Track
 
-**In-repo guide:** **[`AGENTIC_TRACK.md`](AGENTIC_TRACK.md)** (framework comparison, Mermaid diagrams, MCP vs orchestration)
+In-repo guide: **[`AGENTIC_TRACK.md`](AGENTIC_TRACK.md)** (framework comparison, Mermaid diagrams, MCP vs orchestration)
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
