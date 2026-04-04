@@ -62,29 +62,42 @@ All of the above assume **someone already produced a base** via foundation pre-t
                              on SMALL data (≠ “true” foundation pre-training)
 ```
 
-**Mind-map style (same ideas, radial):**
+**Flow :**
 
 ```
-                         [ BASE CHECKPOINT ]
-                        /         |         \
-                       /          |          \
-                      /           |           \
-           CONTINUED PT      FULL FT         PEFT
-           unlabeled         all weights     adapters
-           domain           labeled/task    cheap / fast
-              |                 |                |
-         TinySolar          IMDb, SQuAD      same tasks,
-         ai-pretraining     full-fine-tun…   peft-fine-tun…
-
-
-   FOUNDATION PT (upstream of everything above, rare in courses)
-        │
-        └── random init + massive corpus → creates BASE CHECKPOINT
-
-
-   FROM-SCRATCH NN (orthogonal skill)
-        └── layers, tensors, backprop — deep_neural_network.py
+              ┌────────────────────┐
+              │   Pretraining      │
+              │ (Huge data, $$$)   │
+              └────────┬───────────┘
+                       ↓
+              ┌────────────────────┐
+              │  Base Model        │
+              └────────┬───────────┘
+                       ↓
+        ┌────────────────────────────────┐
+        │  Supervised Fine-Tuning (SFT)  │
+        │  - Instruction tuning          │
+        │  - Domain tuning               │
+        └────────┬───────────────────-───┘
+                 ↓
+        ┌────────────────────────────────┐
+        │  HOW to fine-tune (Technique)  │
+        │  - Full FT                     │
+        │  - PEFT (LoRA, QLoRA)          │
+        └────────┬────────────────────-──┘
+                 ↓
+        ┌────────────────────────────────┐
+        │ Alignment Stage (Post Training)│
+        │  - RLHF (uses PPO)             │
+        │  - DPO                         |
+        |  - RL (PPO etc.)               │
+        └────────┬────────────────────-──┘
+                 ↓
+          ┌────────────────────┐
+          │ Final Assistant    │
+          └────────────────────┘
 ```
+
 
 ---
 
@@ -192,3 +205,27 @@ Vertical companion to the [ASCII map](#conceptual-map-ascii) — **order you fee
 ```
 
 ---
+
+## Real-World Examples
+
+Example 1: ChatGPT-like system
+```
+Pretrain on internet
+SFT on Q&A/chat data
+RLHF with human rankings
+```
+
+Example 2: Your company chatbot
+```
+Take LLaMA
+SFT on company docs
+Use LoRA (PEFT) to save cost
+Optional DPO for better tone
+```
+Example 3: Coding assistant
+```
+Base model
+SFT on GitHub code
+Alignment for safe responses
+```
+
