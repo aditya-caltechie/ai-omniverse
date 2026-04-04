@@ -39,10 +39,10 @@ Besides that, there are two major concept :
 1. **Inference techniques** ( Prompt Engg, RAG, Agentic-RAG ).
 2. **Training techniques**  ( Fine-tuning - Full-fine-tuning / PEFT(LORA/QLORA )).
 
-In-repo guide: 
-[`LLM_CORE_TRACK.md`](LLM_CORE_TRACK.md) (week-by-week map) |
-[`LLM-TRAINING.md`](LLM-TRAINING.md) (pre-train / FT / PEFT stages) | 
-[`FINE-TUNING.md`](FINE-TUNING.md) (SFT, LoRA, QLoRA, prompt tuning)
+**In-repo guides:**  
+[`2_LLM_CORE_TRACK.md`](2_LLM_CORE_TRACK.md) (week-by-week map) ·  
+[`3_LLM-TRAINING.md`](3_LLM-TRAINING.md) (pre-train / FT / PEFT stages) ·  
+[`4_FINE-TUNING.md`](4_FINE-TUNING.md) (SFT, LoRA, QLoRA, prompt tuning)
 
 
 | **Topic** | **Repo** | **Description** |
@@ -60,7 +60,7 @@ In-repo guide:
 
 ## 3. Agentic Core Track
 
-In-repo guide: [`AGENTIC_TRACK.md`](AGENTIC_TRACK.md) (framework comparison, Mermaid diagrams, MCP vs orchestration)
+**In-repo guide:** [`5_AGENTIC_TRACK.md`](5_AGENTIC_TRACK.md) (framework comparison, Mermaid diagrams, MCP vs orchestration)
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
@@ -102,23 +102,27 @@ These files **thread the same topics** as the repo tracks and the **Appendix** f
 
 | Doc | What it covers | Theory in one line |
 |-----|----------------|-------------------|
-| **[`LLM_CORE_TRACK.md`](LLM_CORE_TRACK.md)** | Full **LLM engineering** arc (weeks, capstone) | **Inference-time** path (APIs → Hugging Face → RAG + eval) runs in parallel with **weight-time** adaptation (data → baselines → fine-tuning / QLoRA); **Week 8** hybrid combines RAG, frontier models, fine-tuned specialists, and agents. |
-| **[`LLM-TRAINING.md`](LLM-TRAINING.md)** | **Pre-training vs fine-tuning** vs education | **Foundation pre-training** builds the base checkpoint; **continued pre-training** nudges it on more unlabeled domain text; **full FT** and **PEFT** adapt on task data; **`ai-deep-learning`** teaches architecture + small-data training—not web-scale foundation PT. |
-| **[`FINE-TUNING.md`](FINE-TUNING.md)** | **SFT** and parameter-efficient methods | **SFT** teaches behavior from labeled pairs; **full FT** updates all weights; **LoRA / QLoRA** train small adapters; **prompt / prefix tuning** steers the model with few trainable parameters. |
-| **[`AGENTIC_TRACK.md`](AGENTIC_TRACK.md)** | **Agent frameworks** + MCP | Shared base: **LLM + tools + multi-step control**; compare **OpenAI Agents SDK**, **CrewAI**, **LangGraph**, **AutoGen** by orchestration style; **MCP** is a **tool/resource protocol**, not a replacement for those orchestrators. |
+| **[`1_ROADMAP.md`](1_ROADMAP.md)** | **Course / topic roadmap** (notebooks, resources) | Optional **fundamentals** vs **LLM scientist** vs **LLM engineer** paths; external course structure and handbook links—use as a bird’s-eye supplement to this repo’s tracks. |
+| **[`2_LLM_CORE_TRACK.md`](2_LLM_CORE_TRACK.md)** | Full **LLM engineering** arc (weeks, capstone) | **Inference-time** path (APIs → Hugging Face → RAG + eval) runs in parallel with **weight-time** adaptation (data → baselines → fine-tuning / QLoRA); **Week 8** hybrid combines RAG, frontier models, fine-tuned specialists, and agents. |
+| **[`3_LLM-TRAINING.md`](3_LLM-TRAINING.md)** | **Pre-training vs fine-tuning** vs education | **Foundation pre-training** builds the base checkpoint; **continued pre-training** nudges it on more unlabeled domain text; **full FT** and **PEFT** adapt on task data; **`ai-deep-learning`** teaches architecture + small-data training—not web-scale foundation PT. |
+| **[`4_FINE-TUNING.md`](4_FINE-TUNING.md)** | **SFT** and parameter-efficient methods | **SFT** teaches behavior from labeled pairs; **full FT** updates all weights; **LoRA / QLoRA** train small adapters; **prompt / prefix tuning** steers the model with few trainable parameters. |
+| **[`5_AGENTIC_TRACK.md`](5_AGENTIC_TRACK.md)** | **Agent frameworks** + MCP | Shared base: **LLM + tools + multi-step control**; compare **OpenAI Agents SDK**, **CrewAI**, **LangGraph**, **AutoGen** by orchestration style; **MCP** is a **tool/resource protocol**, not a replacement for those orchestrators. |
 
 ### How the guides connect (ASCII mind map)
 
 ```
-                         [ LLM_CORE_TRACK.md ]
+                    [ 1_ROADMAP.md — optional bird's-eye ]
+                                 |
+                                 v
+                         [ 2_LLM_CORE_TRACK.md ]
                     full curriculum arc + week flow
                                  |
          +-----------------------+-----------------------+
          |                       |                       |
          v                       v                       v
-  LLM-TRAINING.md          FINE-TUNING.md         AGENTIC_TRACK.md
+  3_LLM-TRAINING.md       4_FINE-TUNING.md       5_AGENTIC_TRACK.md
   stages: foundation /    how to adapt          stacks: handoffs,
-  continued PT / FT /      weights: SFT,         crews, graphs,
+  continued PT / FT /      weights: SFT,          crews, graphs,
   PEFT vs scratch NN       full, LoRA, prompts   teams, MCP
          |                       |                       |
          +-----------------------+-----------------------+
@@ -166,7 +170,7 @@ It's a **low-level orchestration framework** / agent runtime built around explic
 #### MCP (Model Context Protocol) :
 It is even further removed — it's not a framework at all. It's a protocol/standard. It just defines a clean, standardized way for any agent to discover and call tools/context/resources from MCP servers.
 
-> **Training-stage diagram (foundation PT → base → continued PT / FT / PEFT):** see **[`LLM-TRAINING.md`](LLM-TRAINING.md)** in [Track guides and mental maps](#track-guides-and-mental-maps) above.
+> **Training-stage diagram (foundation PT → base → continued PT / FT / PEFT):** see **[`3_LLM-TRAINING.md`](3_LLM-TRAINING.md)** in [Track guides and mental maps](#track-guides-and-mental-maps) above.
 
 ---
 ### Fine-Tuning Terminology (SFT vs PEFT/LoRA/QLORA vs Full FT)
