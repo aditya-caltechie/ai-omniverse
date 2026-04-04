@@ -132,8 +132,6 @@ These files **thread the same topics** as the repo tracks and the **Appendix** f
               (matches Week 8 / capstone style integrations in the track doc)
 ```
 
-**Appendix** (below) keeps **short tables** (framework buckets, SFT vs PEFT vs full FT, alignment stages, RLHF sketch). Use it for a fast lookup; use the row’s **`.md` guide** for flowcharts and longer explanations.
-
 ---
 # Appendix :
 
