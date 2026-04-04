@@ -194,25 +194,3 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 | **Stage 1 – Task & domain (SFT)** | Teach domain knowledge, task behavior, and output format. | Supervised Fine-Tuning (SFT), usually with **PEFT (LoRA / QLoRA)** instead of full fine-tuning. | Parameter‑efficient; far less compute and memory than full FT, and often sufficient to ship a product. |
 | **Stage 2 – Alignment & refinement** | Refine style, helpfulness, safety, and response quality. | Preference-based alignment via **DPO** or **RLHF** on preference data. | Optional second pass; most valuable when UX and safety need additional optimization.                   |
 
----
-
-### RLHF
-
-Something yet to explore RLHF :
-```
-Supervised Fine-Tuning (SFT)
- - High-quality instruction-response pairs
- - Teaches model SQL generation patterns
- ↓
-Reward Model Training
- - Preference learning (good vs bad SQL)
- - Learns to score SQL quality
- ↓
-PPO Optimization (RLHF)
- - Uses reward model as critic
- - Optimizes for better SQL generation
- ↓
-Final PPO Model
- - Optimized for your RAG use case
- - Better at generating clean, correct SQL
-```
