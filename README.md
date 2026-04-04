@@ -165,36 +165,36 @@ It's a **low-level orchestration framework** / agent runtime built around explic
 #### MCP (Model Context Protocol) :
 It is even further removed — it's not a framework at all. It's a protocol/standard. It just defines a clean, standardized way for any agent to discover and call tools/context/resources from MCP servers.
 
-> **Training-stage diagram (foundation PT → base → continued PT / FT / PEFT):** see **[`3_LLM-TRAINING.md`](3_LLM-TRAINING.md)** in [Track guides and mental maps](#track-guides-and-mental-maps) above.
 
 ---
+
 ### Fine-Tuning Terminology (SFT vs PEFT/LoRA/QLORA vs Full FT)
 
 | **Term**             | **Category**       | **What it describes**                                                     |
 |----------------------|--------------------|---------------------------------------------------------------------------|
-| **SFT**              | Learning Paradigm  | Using labeled *input/output* data to teach a specific behavior.          |
-| **Full Fine-Tuning** | Resource Method    | Modifying **100%** of the model's weights during SFT.  [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/text_classification.py), [example-2](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/question_answering.py)                |
-| **PEFT Fine-Tuning (LoRA / QLoRA)**     | Resource Method    | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/fine_tuning.py), [example-2](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/fine_tuning/notebooks/2_fine-tuning_via_QLORA.ipynb), [example-3](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/workshop/Finetuning_Workshop_SFT_Demo_March28.ipynb) |
+| SFT             | Learning Paradigm  | Using labeled *input/output* data to teach a specific behavior.          |
+| Full Fine-Tuning | Resource Method    | Modifying **100%** of the model's weights during SFT.  [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/text_classification.py), [example-2](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/question_answering.py)                |
+| PEFT Fine-Tuning (LoRA / QLoRA)     | Resource Method    | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/fine_tuning.py), [example-2](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/fine_tuning/notebooks/2_fine-tuning_via_QLORA.ipynb), [example-3](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/workshop/Finetuning_Workshop_SFT_Demo_March28.ipynb) |
 
----
 
 ### Stages vs. What They Learn
 
 | **Stage**      | **What is learned?**          | **Analogy**                                |
 |---------------|--------------------------------|--------------------------------------------|
-| **SFT**       | Domain knowledge & format      | Learning the textbook for a class.         |
-| **DPO / RLHF**| Style, safety, & preference    | Taking practice exams and getting a grade. |
+| SFT      | Domain knowledge & format      | Learning the textbook for a class.         |
+| DPO / RLHF| Style, safety, & preference    | Taking practice exams and getting a grade. |
 
----
 
 ### Two-Stage Adaptation Pattern
 
 | **Stage** | **Goal**                          | **Typical method**                                   | **Notes**                                                                                           |
 |----------|------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| **Stage 1 – Task & domain (SFT)** | Teach domain knowledge, task behavior, and output format. | Supervised Fine-Tuning (SFT), usually with **PEFT (LoRA / QLoRA)** instead of full fine-tuning. | Parameter‑efficient; far less compute and memory than full FT, and often sufficient to ship a product. |
-| **Stage 2 – Alignment & refinement** | Refine style, helpfulness, safety, and response quality. | Preference-based alignment via **DPO** or **RLHF** on preference data. | Optional second pass; most valuable when UX and safety need additional optimization.                   |
+| `Stage 1` – Task & domain (SFT) | Teach domain knowledge, task behavior, and output format. | Supervised Fine-Tuning (SFT), usually with **PEFT (LoRA / QLoRA)** instead of full fine-tuning. | Parameter‑efficient; far less compute and memory than full FT, and often sufficient to ship a product. |
+| `Stage 2` – Alignment & refinement | Refine style, helpfulness, safety, and response quality. | Preference-based alignment via **DPO** or **RLHF** on preference data. | Optional second pass; most valuable when UX and safety need additional optimization.                   |
 
----
+
+
+#### Flow with Methods (Where each fits)
 ```
               ┌────────────────────┐
               │   Pretraining      │
@@ -254,16 +254,14 @@ vLLM → serves model fast
         ↓
 LangChain → builds app/agent
 ```
-
-
-
-
 There are 3 main steps:
 - PreTraining - (Mostly done by Giants like Google, Meta)
 - Fine-Tuning (SFT- FT/PEFT for domain training)
 - Reinforcement Learning (RLHF/DPO) - Optional
 
+```
 👉 SFT teaches the model WHAT to say
 👉 PEFT makes it CHEAP to train
 👉 DPO/RLHF teaches HOW to behave
+```
 
