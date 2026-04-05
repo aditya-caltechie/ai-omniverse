@@ -5,8 +5,8 @@
 This repo is a curated learning path covering the full spectrum of modern AI and machine learning:
 
 
-| **Area**              | **Coverage**                                                                                                                                                           |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Area** | **Coverage** |
+| -------- | ------------ |
 | **Traditional ML**    | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation. [Github](https://github.com/aditya-caltechie/handson-mlp)             |
 | **Deep Learning**     | Neural networks, CNNs, RNNs, transformers, and training at scale.                                                                                                      |
 | **Gen AI & LLMs**     | Building applications with large language models: prompting, RAG, advance RAG, agentic RAG, and deployment.                                                            |
@@ -73,8 +73,8 @@ mindmap
               └───────────────────────────┬─────────────────────────┘
                                           │
                          ┌────────────────▼────────────────┐
-                         │  TRANSFORMERS / LLMs            |
-                         | attention ·tokenizer ·pretrained│
+                         │  TRANSFORMERS / LLMs            │
+                         │  attention · tokenizer · base   │
                          │  HF · generate · chat templates │  ← 2_LLM_CORE_TRACK.md
                          └────────────────┬────────────────┘
                                           │
@@ -98,8 +98,8 @@ mindmap
 ## 1. AI/ML Foundation
 
 
-| **Topic**                     | **Repo**                                                                 | **Description**                                                                                                                                                                                                                         |
-| ----------------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Topic** | **Repo** | **Description** |
+| --------- | -------- | --------------- |
 | Traditional ML (**optional**) | Todo                                                                     | Todo                                                                                                                                                                                                                                    |
 | Deep Learning (**optional**)  | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Building your own NN from scratch. It also has workshop which covers - Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
 
@@ -115,8 +115,8 @@ Besides that, there are two major concept :
 **In-repo guides:**  [LLM_CORE_TRACK](2_LLM_CORE_TRACK.md)  |  [LLM-TRAINING](3_LLM-TRAINING.md)  |  [FINE-TUNING](4_FINE-TUNING.md)
 
 
-| **Topic**                                 | **Repo**                                                                       | **Description**                                                                                                                                                                                                                                                |
-| ----------------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Topic** | **Repo** | **Description** |
+| --------- | -------- | --------------- |
 | Transformers                              | [ai-transformers](https://github.com/aditya-caltechie/ai-transformers)         | All about Transformers. High-level APIs for Inference. Low-level APIs for fine-tuning [Illustration](https://jalammar.github.io/illustrated-transformer/)                                                                                                      |
 | Pre-Training LLM (**optional**)           | [ai-pretraining](https://github.com/aditya-caltechie/ai-pretraining/tree/main) | Continous Pre-training. why and when its useful and needed                                                                                                                                                                                                     |
 | Fine-tuning (SFT) - PEFT/LORA             | [ai-fine-tuning](https://github.com/aditya-caltechie/ai-fine-tuning)           | Fine-tuning small language models (e.g. LoRA, QLoRA, adapters) on custom data. Covers data prep, training, and evaluation for domain-specific models. This also has workshop section from March28. Material from DeepLearning.ai course as well for reference. |
@@ -131,11 +131,10 @@ Besides that, there are two major concept :
 
 ## 3. Agentic Core Track
 
-**In-repo guide:** `[5_AGENTIC_TRACK.md](5_AGENTIC_TRACK.md)` (framework comparison, Mermaid diagrams, MCP vs orchestration)
+**In-repo guide:** **[5_AGENTIC_TRACK.md](5_AGENTIC_TRACK.md)** (framework comparison, Mermaid diagrams, MCP vs orchestration)
 
-
-| **Topic**                    | **Repo**                                                                                         | **Description**                                                                                                                          |
-| ---------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Topic** | **Repo** | **Description** |
+| --------- | -------- | --------------- |
 | Agents without Framework     | [ai-career-agent](https://github.com/aditya-caltechie/ai-career-agent)                           | Basic agent without using any framework. Simple use of tools in loop with LLM to build career chat                                       |
 | OpenAI Agents SDK            | [ai-agentic-sales-outreach](https://github.com/aditya-caltechie/ai-agentic-sales-outreach)       | Cold-send agent project: agentic cold sales email with tools and handoffs strategies. Uses worksflows and agent approach. Use guardrails |
 | OpenAI Agents SDK            | [ai-openai-sdk-deep-research](https://github.com/aditya-caltechie/ai-agent-sdk-deep-research)    | Perform Deep Research                                                                                                                    |
@@ -154,8 +153,8 @@ Besides that, there are two major concept :
 ## 4. MLOps Track
 
 
-| **Topic**                                | **Repo**                                                                           | **Description**                                                                                                                  |
-| ---------------------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **Topic** | **Repo** | **Description** |
+| --------- | -------- | --------------- |
 | Deploy Gen AI & Agentic AI in Production | [MLOps-production](https://github.com/aditya-caltechie/ed-donner-MLOps-production) | Course repo: deploy Gen AI and Agentic AI at scale in 4 weeks. Covers production deployment, guides, and week-by-week materials. |
 
 
@@ -164,8 +163,8 @@ Besides that, there are two major concept :
 ## Study Notes
 
 
-| **Repo**                                                                   | **Description**                                                                                                                       |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **Repo** | **Description** |
+| -------- | --------------- |
 | [ai-tutorial-notes](https://github.com/aditya-caltechie/ai-tutorial-notes) | Consolidated notes and references from Udemy AI/ML courses. Quick lookup for concepts, commands, and patterns used across the tracks. |
 
 
@@ -176,8 +175,8 @@ Besides that, there are two major concept :
 These files **thread the same topics** as the repo tracks and the **Appendix** further down this README, but as **guided narratives** (week arcs, training stages, fine-tuning choices, agent stacks). Open them when you want diagrams and FAQs, not only quick definitions.
 
 
-| Doc                                              | What it covers                                    | Theory in one line                                                                                                                                                                                                                                                      |
-| ------------------------------------------------ | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Doc | What it covers | Theory in one line |
+| --- | -------------- | ------------------ |
 | **[1_ROADMAP.md](1_ROADMAP.md)** | **Course / topic roadmap** (notebooks, resources) | Optional **fundamentals** vs **LLM scientist** vs **LLM engineer** paths; external course structure and handbook links—use as a bird’s-eye supplement to this repo’s tracks. |
 | **[2_LLM_CORE_TRACK.md](2_LLM_CORE_TRACK.md)** | Full **LLM engineering** arc (weeks, capstone) | **Inference-time** path (APIs → Hugging Face → RAG + eval) runs in parallel with **weight-time** adaptation (data → baselines → fine-tuning / QLoRA); **Week 8** hybrid combines RAG, frontier models, fine-tuned specialists, and agents. |
 | **[3_LLM-TRAINING.md](3_LLM-TRAINING.md)** | **Pre-training vs fine-tuning** vs education | **Foundation pre-training** builds the base checkpoint; **continued pre-training** nudges it on more unlabeled domain text; **full FT** and **PEFT** adapt on task data; **`ai-deep-learning`** teaches architecture + small-data training—not web-scale foundation PT. |
@@ -255,8 +254,8 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 ### Fine-Tuning Terminology (SFT vs PEFT/LoRA/QLORA vs Full FT)
 
 
-| **Term**                        | **Category**      | **What it describes**                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Term** | **Category** | **What it describes** |
+| -------- | ------------ | --------------------- |
 | SFT                             | Learning Paradigm | Using labeled *input/output* data to teach a specific behavior.                                                                                                                                                                                                                                                                                                                                                                                           |
 | Full Fine-Tuning                | Resource Method   | Modifying **100%** of the model's weights during SFT. [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/text_classification.py), [example-2](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/question_answering.py)                                                                                                                                                                     |
 | PEFT Fine-Tuning (LoRA / QLoRA) | Resource Method   | Modifying **< 1%** of the model's weights during SFT (parameter-efficient). [example-1](https://github.com/aditya-caltechie/ai-deep-learning/blob/main/src/workshop/fine_tuning.py), [example-2](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/fine_tuning/notebooks/2_fine-tuning_via_QLORA.ipynb), [example-3](https://github.com/aditya-caltechie/ai-fine-tuning/blob/main/src/workshop/Finetuning_Workshop_SFT_Demo_March28.ipynb) |
@@ -265,8 +264,8 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 ### Stages vs. What They Learn
 
 
-| **Stage**  | **What is learned?**        | **Analogy**                                |
-| ---------- | --------------------------- | ------------------------------------------ |
+| **Stage** | **What is learned?** | **Analogy** |
+| --------- | -------------------- | ----------- |
 | SFT        | Domain knowledge & format   | Learning the textbook for a class.         |
 | DPO / RLHF | Style, safety, & preference | Taking practice exams and getting a grade. |
 
@@ -274,8 +273,8 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
 ### Two-Stage Adaptation Pattern
 
 
-| **Stage**                          | **Goal**                                                  | **Typical method**                                                                              | **Notes**                                                                                              |
-| ---------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Stage** | **Goal** | **Typical method** | **Notes** |
+| --------- | -------- | ------------------ | --------- |
 | `Stage 1` – Task & domain (SFT)    | Teach domain knowledge, task behavior, and output format. | Supervised Fine-Tuning (SFT), usually with **PEFT (LoRA / QLoRA)** instead of full fine-tuning. | Parameter‑efficient; far less compute and memory than full FT, and often sufficient to ship a product. |
 | `Stage 2` – Alignment & refinement | Refine style, helpfulness, safety, and response quality.  | Preference-based alignment via **DPO** or **RLHF** on preference data.                          | Optional second pass; most valuable when UX and safety need additional optimization.                   |
 
@@ -307,8 +306,8 @@ It is even further removed — it's not a framework at all. It's a protocol/stan
         ┌────────────────────────────────┐
         │ Alignment Stage (Post Training)│
         │  - RLHF (uses PPO)             │
-        │  - DPO                         |
-        |  - RL (PPO etc.)               │
+        │  - DPO                         │
+        │  - RL (PPO etc.)               │
         └────────┬────────────────────-──┘
                  ↓
           ┌────────────────────┐
