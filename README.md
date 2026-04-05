@@ -71,28 +71,21 @@ mindmap
       Observability guardrails cost
 ```
 
-### Logical flow (Mermaid) — dependency ladder (compact)
-
-Six layers, one box each (same ideas as before; infer vs weights both called out in **L4**).
-
-```mermaid
-flowchart TB
-  L1["L1 Foundations — classical ML sup/unsup · Python · probability · linear algebra"]
-  L2["L2 Deep learning — NN · autograd · optim · CNN · RNN · sequences"]
-  L3["L3 Transformers & LLMs — attention · tokenizer · pretrained base checkpoint"]
-  L4["L4 Two axes — Infer: APIs · prompts · RAG · agentic RAG — Weights: continued PT · SFT · full FT · PEFT"]
-  L5["L5 Agentic — tools · planning · memory · multi-agent · orchestration · MCP"]
-  L6["L6 Ship — MLOps · serving · CI/CD · evals · safety · guardrails · cost & latency"]
-  L1 --> L2 --> L3 --> L4 --> L5 --> L6
-```
-
-Slim ASCII strip (same ladder, no Mermaid):
+### Logical flow (ASCII) — dependency ladder
 
 ```
-L1 Foundations → L2 Deep DL → L3 Transformers/LLM → L4 Infer ∥ Weights → L5 Agents+MCP → L6 MLOps+evals
-     │                  │              │                      │                    │              │
-  classical ML      NN CNN RNN    attn · tokenizer    API RAG + CPT SFT FT PEFT   tools plan memory   serve guardrails
-  Python stats LA     autograd      base checkpoint      (parallel axes)          graphs MCP     cost SLOs
+  L6  Ship        MLOps · serving · CI/CD · evals · safety · guardrails · cost & latency
+       ^
+  L5  Agentic     tools · planning · memory · multi-agent · orchestration · MCP
+       ^
+  L4  Two axes    Infer: APIs · prompts · RAG · agentic RAG
+                  Weights: continued PT · SFT · full FT · PEFT
+       ^
+  L3  LLMs        attention · tokenizer · pretrained base checkpoint
+       ^
+  L2  Deep DL     NN · autograd · optim · CNN · RNN · sequences
+       ^
+  L1  Foundations classical ML (sup/unsup) · Python · probability · linear algebra
 ```
 
 ### ASCII “climb the stack” (copy-friendly)
