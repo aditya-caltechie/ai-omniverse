@@ -18,7 +18,7 @@ This repo is a curated learning path covering the full spectrum of modern AI and
 
 ---
 
-## AI mastery roadmap & hierarchy - mind map
+## AI roadmap & hierarchy - mind map
 
 ```mermaid
 mindmap
@@ -187,22 +187,22 @@ These files live in **`docs/`** (repository root). They **thread the same topics
 ### How the guides connect (ASCII mind map)
 
 ```
-                    [ docs/1_ROADMAP.md — optional bird's-eye ]
-                                 |
-                                 v
-                         [ docs/2_LLM_CORE_TRACK.md ]
-                    full curriculum arc + week flow
-                                 |
-         +-------------+-------------+-------------+----------------+
-         |             |             |             |                |
-         v             v             v             v                v
-  docs/3_LLM-TRAINING.md   docs/4_FINE-TUNING.md   RAG (inference-time)   docs/5_AGENTIC_TRACK.md
-  foundation CPT FT   SFT · full FT      chunk · embed ·vector DB    handoffs · crews
-  · FT · PEFT         · LoRA · prompts   · retrieve + LLM ·         · graphs · teams
-  · scratch NN                           · agentic RAG · evals      · MCP (see guide)
+                    [ 1_ROADMAP.md — optional bird's-eye ]
+                                    |
+                                    v
+                         [ 2_LLM_CORE_TRACK.md ]
+                            full curriculum arc
+                                     |
+         +-------------+-------------+----------------+--------------+
+         |             |                              |              |
+         v             v                              v              v
+  3_LLM-TRAINING.md   4_FINE-TUNING.md   RAG (inference-time)     AGENTIC_TRACK.md
+  foundation CPT FT   SFT ·full FT/PEFT  chunk ·embed ·vectorDB   handoffs · crews
+  · FT · PEFT         · LoRA · prompts   · retrieve + LLM ·       · graphs · teams
+  · scratch NN                           · agentic RAG · evals    · MCP (see guide)
                                          · repos: ai-rag 
-         |             |             |             |               |
-         +-------------+-------------+-------------+---------------+
+         |             |                          |                  |
+         +-------------+--------------------------+------------------+
                                  |
                                  v
               Product: grounded answers (RAG) + adapted weights + agent orchestration
