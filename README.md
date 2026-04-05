@@ -16,10 +16,6 @@ This repo is a curated learning path covering the full spectrum of modern AI and
 | **MLOps**             | Experiment tracking, model versioning, pipelines, serving, and monitoring in production, along with EVALs and observability.                                           |
 
 
-Course repos and materials are organized by track below.
-
-*Studying AI & agents for the future*
-
 ---
 
 ## AI mastery roadmap & hierarchy - mind map
@@ -198,19 +194,20 @@ These files **thread the same topics** as the repo tracks and the **Appendix** f
                          [ 2_LLM_CORE_TRACK.md ]
                     full curriculum arc + week flow
                                  |
-         +-----------------------+-----------------------+
-         |                       |                       |
-         v                       v                       v
-  3_LLM-TRAINING.md       4_FINE-TUNING.md       5_AGENTIC_TRACK.md
-  stages: foundation /    how to adapt          stacks: handoffs,
-  continued PT / FT /      weights: SFT,          crews, graphs,
-  PEFT vs scratch NN       full, LoRA, prompts   teams, MCP
-         |                       |                       |
-         +-----------------------+-----------------------+
+         +-------------+-------------+-------------+----------------+
+         |             |             |             |                |
+         v             v             v             v                v
+  3_LLM-TRAINING.md   4_FINE-TUNING.md   RAG (inference-time)       5_AGENTIC_TRACK.md
+  foundation CPT FT   SFT · full FT      chunk · embed ·vector DB    handoffs · crews
+  · FT · PEFT         · LoRA · prompts   · retrieve + LLM ·         · graphs · teams
+  · scratch NN                           · agentic RAG · evals      · MCP (see guide)
+                                         · repos: ai-rag 
+         |             |             |             |               |
+         +-------------+-------------+-------------+---------------+
                                  |
                                  v
-              Product picture: RAG + adapted weights + agent orchestration
-              (matches Week 8 / capstone style integrations in the track doc)
+              Product: grounded answers (RAG) + adapted weights + agent orchestration
+              (Week 8 / capstone style — see 2_LLM_CORE_TRACK.md)
 ```
 
 ---
