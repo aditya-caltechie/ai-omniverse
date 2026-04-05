@@ -71,38 +71,28 @@ mindmap
       Observability guardrails cost
 ```
 
-### Logical flow (Mermaid) — dependency ladder
+### Logical flow (Mermaid) — dependency ladder (compact)
+
+Six layers, one box each (same ideas as before; infer vs weights both called out in **L4**).
 
 ```mermaid
 flowchart TB
-  subgraph L1 [Layer 1 - Foundations]
-    F1[Classical ML: supervised / unsupervised]
-    F2[Python, probability, linear algebra]
-  end
-  subgraph L2 [Layer 2 - Deep learning]
-    D1[Neural nets, autograd, optimization]
-    D2[CNNs, RNNs, sequences]
-  end
-  subgraph L3 [Layer 3 - Transformers and LLMs]
-    T1[Attention, Transformer, tokenization]
-    T2[Base checkpoint - usually pretrained]
-  end
-  subgraph L4 [Layer 4 - Two adaptation axes]
-    I1[Inference: APIs, prompts, RAG, agentic RAG]
-    W1[Weights: continued PT, SFT, full FT, PEFT]
-  end
-  subgraph L5 [Layer 5 - Agentic AI]
-    A1[Tools, planning, memory, multi-agent]
-    A2[Orchestration stacks + MCP servers]
-  end
-  subgraph L6 [Layer 6 - Ship and scale]
-    P1[MLOps, serving, CI/CD]
-    P2[Evals, safety, guardrails, cost and latency]
-  end
-  L1 --> L2 --> L3 --> L4
-  L4 --> L5 --> L6
-  I1 -.->|context for| A1
-  W1 -.->|specialists for| A1
+  L1["L1 Foundations — classical ML sup/unsup · Python · probability · linear algebra"]
+  L2["L2 Deep learning — NN · autograd · optim · CNN · RNN · sequences"]
+  L3["L3 Transformers & LLMs — attention · tokenizer · pretrained base checkpoint"]
+  L4["L4 Two axes — Infer: APIs · prompts · RAG · agentic RAG — Weights: continued PT · SFT · full FT · PEFT"]
+  L5["L5 Agentic — tools · planning · memory · multi-agent · orchestration · MCP"]
+  L6["L6 Ship — MLOps · serving · CI/CD · evals · safety · guardrails · cost & latency"]
+  L1 --> L2 --> L3 --> L4 --> L5 --> L6
+```
+
+Slim ASCII strip (same ladder, no Mermaid):
+
+```
+L1 Foundations → L2 Deep DL → L3 Transformers/LLM → L4 Infer ∥ Weights → L5 Agents+MCP → L6 MLOps+evals
+     │                  │              │                      │                    │              │
+  classical ML      NN CNN RNN    attn · tokenizer    API RAG + CPT SFT FT PEFT   tools plan memory   serve guardrails
+  Python stats LA     autograd      base checkpoint      (parallel axes)          graphs MCP     cost SLOs
 ```
 
 ### ASCII “climb the stack” (copy-friendly)
