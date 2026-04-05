@@ -1,6 +1,6 @@
 # ai-omniverse
 
-**One stop for AI/ML learning** — AL/ML learning Gym including traditional ML, deep learning, fine-tuning, Gen AI, Agentic AI. Everything from experiments to production with evaluation and observability.
+**One stop for AI/ML learning** — AI/ML learning gym: traditional ML, deep learning, fine-tuning, Gen AI, agentic AI. Everything from experiments to production with evaluation and observability.
 
 This repo is a curated learning path covering the full spectrum of modern AI and machine learning:
 
@@ -23,9 +23,135 @@ Course repos and materials are organized by track below.
 </p>
 <p align="center"><em>Studying AI & agents for the future</em></p>
 
+---
+
+## AI mastery roadmap & hierarchy
+
+**How to read this:** Modern AI is a **stack**. You can skip earlier layers if you already know them, but the **dependencies** are real: agents assume you understand **LLMs**; **LLMs** assume **deep learning**; **production** assumes **evals + observability**. This section lines up that stack with **this repo’s tracks** and the numbered guides ([`2_LLM_CORE_TRACK.md`](2_LLM_CORE_TRACK.md), [`3_LLM-TRAINING.md`](3_LLM-TRAINING.md), [`4_FINE-TUNING.md`](4_FINE-TUNING.md), [`5_AGENTIC_TRACK.md`](5_AGENTIC_TRACK.md)).
+
+### Visual overview (PNG)
+
+<p align="center">
+  <img src="assets/ai-mastery-roadmap.png" alt="AI mastery roadmap: foundations, deep learning, LLMs, inference vs adaptation, agents, MLOps" width="820"/>
+</p>
+<p align="center"><em>Generated roadmap — staircase from foundations to shipped AI systems.</em></p>
+
+**Other diagrams in `assets/` (curated earlier):** [`layers-of-ai.png`](assets/layers-of-ai.png) · [`core-llm-track.png`](assets/core-llm-track.png) · [`core-agentic-track.png`](assets/core-agentic-track.png) · [`roadmap_fundamentals.png`](assets/roadmap_fundamentals.png) · [`roadmap_scientist.png`](assets/roadmap_scientist.png) · [`roadmap_engineer.png`](assets/roadmap_engineer.png)
+
+### Interactive map (Mermaid) — mind map
+
+*Renders on GitHub and in many Markdown previews. If you see raw code, paste into [mermaid.live](https://mermaid.live).*
+
+```mermaid
+mindmap
+  root((AI mastery))
+    Foundations
+      Classical ML
+      Python stats linear algebra
+    Deep learning
+      NN from scratch
+      CNNs RNNs
+    Transformers and LLMs
+      Architecture attention
+      Base model checkpoint
+    Inference time
+      APIs prompting
+      RAG evals
+    Weight time
+      Continued pretrain
+      SFT full FT
+      LoRA QLoRA
+    Alignment optional
+      DPO RLHF preferences
+    Agentic systems
+      Tools loops memory
+      Frameworks MCP
+    Production
+      MLOps deploy
+      Observability guardrails cost
+```
+
+### Logical flow (Mermaid) — dependency ladder
+
+```mermaid
+flowchart TB
+  subgraph L1 [Layer 1 - Foundations]
+    F1[Classical ML: supervised / unsupervised]
+    F2[Python, probability, linear algebra]
+  end
+  subgraph L2 [Layer 2 - Deep learning]
+    D1[Neural nets, autograd, optimization]
+    D2[CNNs, RNNs, sequences]
+  end
+  subgraph L3 [Layer 3 - Transformers and LLMs]
+    T1[Attention, Transformer, tokenization]
+    T2[Base checkpoint - usually pretrained]
+  end
+  subgraph L4 [Layer 4 - Two adaptation axes]
+    I1[Inference: APIs, prompts, RAG, agentic RAG]
+    W1[Weights: continued PT, SFT, full FT, PEFT]
+  end
+  subgraph L5 [Layer 5 - Agentic AI]
+    A1[Tools, planning, memory, multi-agent]
+    A2[Orchestration stacks + MCP servers]
+  end
+  subgraph L6 [Layer 6 - Ship and scale]
+    P1[MLOps, serving, CI/CD]
+    P2[Evals, safety, guardrails, cost and latency]
+  end
+  L1 --> L2 --> L3 --> L4
+  L4 --> L5 --> L6
+  I1 -.->|context for| A1
+  W1 -.->|specialists for| A1
+```
+
+### ASCII “climb the stack” (copy-friendly)
+
+```
+                         ┌─────────────────────────────┐
+                         │  SHIP  ·  MLOps · evals     │
+                         │  guardrails · cost · SLOs   │
+                         └──────────────┬──────────────┘
+                                        │
+                         ┌──────────────▼──────────────┐
+                         │  AGENTS  · tools · loops    │
+                         │  crews · graphs · MCP       │  ← 5_AGENTIC_TRACK.md
+                         └──────────────┬──────────────┘
+                                        │
+              ┌───────────────────────────┴───────────────────────────┐
+              │                                                     │
+   ┌──────────▼──────────┐                               ┌──────────▼──────────┐
+   │ INFERENCE-TIME      │                               │ WEIGHT-TIME         │
+   │ prompts · RAG · API │                               │ CPT · SFT · FT      │
+   │ (no weight change)  │                               │ LoRA · QLoRA        │
+   └──────────┬──────────┘                               └──────────┬──────────┘
+              │                                                     │
+              └───────────────────────────┬─────────────────────────┘
+                                          │
+                         ┌────────────────▼────────────────┐
+                         │  TRANSFORMERS / LLMs            │
+                         │  HF · generate · chat templates │  ← 2_LLM_CORE_TRACK.md
+                         └────────────────┬────────────────┘
+                                          │
+                         ┌────────────────▼────────────────┐
+                         │  DEEP LEARNING                  │
+                         │  backprop · CNN · RNN           │  ← ai-deep-learning
+                         └────────────────┬────────────────┘
+                                          │
+                         ┌────────────────▼────────────────┐
+                         │  FOUNDATIONS                    │
+                         │  classical ML · features · CV   │
+                         └─────────────────────────────────┘
+
+  Sidecar ideas (plug in when needed): alignment (DPO / RLHF) · multimodal ·
+  synthetic data · RAG eval (MRR, faithfulness) · red-teaming.
+  Training *stages* cheat sheet: 3_LLM-TRAINING.md · adaptation methods: 4_FINE-TUNING.md
+```
+
+**Where this repo focuses:** §1 foundations (optional) → §2 **LLM core** (inference + weights + RAG) → §3 **agentic** → §4 **MLOps**. Broader notebook-style roadmap: [`1_ROADMAP.md`](1_ROADMAP.md).
 
 ---
-## 1. AL/ML Foundation
+## 1. AI/ML Foundation
 
 | **Topic** | **Repo** | **Description** |
 |-----------|----------|-----------------|
