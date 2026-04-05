@@ -100,7 +100,7 @@ mindmap
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
-| Traditional ML (**optional**) | Todo                                                                     | Todo                                                                                                                                                                                                                                    |
+| Traditional ML (**optional**) | [Basics](https://github.com/aditya-caltechie/MachineLearning-3/tree/master)  [MLProjects1](https://github.com/aditya-caltechie/Machine-Learning-Projects/tree/master) [MLProjects2](https://github.com/aditya-caltechie/machine-learning-4/tree/master) [Refer](https://github.com/aditya-caltechie/handson-mlp)  | This are references to public repos with fundamentals and projects. |
 | Deep Learning (**optional**)  | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Building your own NN from scratch. It also has workshop which covers - Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
 
 
