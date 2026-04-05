@@ -22,19 +22,7 @@ Course repos and materials are organized by track below.
 
 ---
 
-## AI mastery roadmap & hierarchy
-
-**How to read this:** Modern AI is a **stack**. You can skip earlier layers if you already know them, but the **dependencies** are real: agents assume you understand **LLMs**; **LLMs** assume **deep learning**; **production** assumes **evals + observability**. This section lines up that stack with **this repo’s tracks** and the numbered guides (`[2_LLM_CORE_TRACK.md](2_LLM_CORE_TRACK.md)`, `[3_LLM-TRAINING.md](3_LLM-TRAINING.md)`, `[4_FINE-TUNING.md](4_FINE-TUNING.md)`, `[5_AGENTIC_TRACK.md](5_AGENTIC_TRACK.md)`).
-
-### Visual overview (PNG)
-
-*Generated roadmap — staircase from foundations to shipped AI systems.*
-
-**Other diagrams in `assets/` (curated earlier):** `[layers-of-ai.png](assets/layers-of-ai.png)` · `[core-llm-track.png](assets/core-llm-track.png)` · `[core-agentic-track.png](assets/core-agentic-track.png)` · `[roadmap_fundamentals.png](assets/roadmap_fundamentals.png)` · `[roadmap_scientist.png](assets/roadmap_scientist.png)` · `[roadmap_engineer.png](assets/roadmap_engineer.png)`
-
-### Interactive map (Mermaid) — mind map
-
-*Renders on GitHub and in many Markdown previews. If you see raw code, paste into [mermaid.live](https://mermaid.live).*
+## AI mastery roadmap & hierarchy - mind map
 
 ```mermaid
 mindmap
@@ -65,8 +53,7 @@ mindmap
       Observability guardrails cost
 ```
 
-
-### Logical flow (ASCII) — dependency ladder
+### Logical flow — dependency ladder
 
 ```
                          ┌─────────────────────────────┐
@@ -109,8 +96,6 @@ mindmap
   synthetic data · RAG eval (MRR, faithfulness) · red-teaming.
   Training *stages* cheat sheet: 3_LLM-TRAINING.md · adaptation methods: 4_FINE-TUNING.md
 ```
-
-**Where this repo focuses:** §1 foundations (optional) → §2 **LLM core** (inference + weights + RAG) → §3 **agentic** → §4 **MLOps**. Broader notebook-style roadmap: `[1_ROADMAP.md](1_ROADMAP.md)`.
 
 ---
 
