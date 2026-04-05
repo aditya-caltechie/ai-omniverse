@@ -7,7 +7,7 @@ This repo is a curated learning path covering the full spectrum of modern AI and
 
 | **Area** | **Coverage** |
 | -------- | ------------ |
-| **Traditional ML**    | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation. [Github](https://github.com/aditya-caltechie/handson-mlp)             |
+| **Traditional ML**    | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation.             |
 | **Deep Learning**     | Neural networks, CNNs, RNNs, transformers, and training at scale.                                                                                                      |
 | **Gen AI & LLMs**     | Building applications with large language models: prompting, RAG, advance RAG, agentic RAG, and deployment.                                                            |
 | **Fine Tuning (SFT)** | Fine-tuning small language models ( PEFT e.g. LoRA, QLoRA, adapters) on custom data. You can perform SFT using Full Fine-Tuning (expensive) or LoRA/QLoRA (efficient). |
