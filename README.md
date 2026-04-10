@@ -155,7 +155,7 @@ Besides that, there are two major concept :
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
-| Deploy Gen AI & Agentic AI in Production | [MLOps-production](https://github.com/aditya-caltechie/ed-donner-MLOps-production) | Course repo: deploy Gen AI and Agentic AI at scale in 4 weeks. Covers production deployment, guides, and week-by-week materials. |
+| AI healthcare SAAS on Vercel | [ai-healthcare-assistance](https://github.com/aditya-caltechie/ai-healthcare-assistant) | Deploying AI based healthcare SAAS app on Vercel, with clerk auth |
 
 
 ---
