@@ -155,7 +155,7 @@ Besides that, there are two major concept :
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
-| AI healthcare SAAS on Vercel | [ai-healthcare-assistance](https://github.com/aditya-caltechie/ai-healthcare-assistant) | Deploying AI based healthcare SAAS app on Vercel, with clerk auth |
+| AI healthcare SAAS on Vercel | [ai-healthcare-assistance](https://github.com/aditya-caltechie/ai-healthcare-assistant) [ai-healthcare-pro](https://github.com/aditya-caltechie/ai-healthcare-pro)| Deploying AI based healthcare SAAS app on Vercel, with clerk auth |
 
 
 ---
