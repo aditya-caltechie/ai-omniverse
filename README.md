@@ -155,8 +155,7 @@ Besides that, there are two major concept :
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
-| Healthcare-Pro SAAS on Vercel | [ai-healthcare-pro](https://github.com/aditya-caltechie/ai-healthcare-pro)| Deploying AI based healthcare SAAS app on Vercel, with clerk auth. LEarn bit of front-end |
-| Healthcare SAAS on AWS | [ai-healthcare-assistance](https://github.com/aditya-caltechie/ai-healthcare-assistant) | Deploying AI based healthcare SAAS app on AWS, with clerk auth |
+| Healthcare-Pro SAAS app | [ai-healthcare-pro](https://github.com/aditya-caltechie/ai-healthcare-pro)| Deploying AI based healthcare SAAS app on Vercel, with clerk auth. Learn a bit of frontend. Can be deployed to both vercel and AWS |
 | Digital twin on AWS | - | - |
 
 
