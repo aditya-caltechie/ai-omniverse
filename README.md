@@ -155,8 +155,8 @@ Besides that, there are two major concept :
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
-| Healthcare-Pro SAAS app | [ai-healthcare-pro](https://github.com/aditya-caltechie/ai-healthcare-pro)| Deploying AI based healthcare SAAS app on Vercel, with clerk auth. Learn a bit of frontend. Can be deployed to both vercel and AWS |
-| Digital twin on AWS | - | - |
+| Healthcare-Pro SAAS app | [ai-healthcare-pro](https://github.com/aditya-caltechie/ai-healthcare-pro)| Deploying AI based healthcare SAAS app on **Vercel**, with clerk auth. Learn a bit of frontend. Can be deployed to both vercel and AWS |
+| Digital twin on AWS | [ai-digital-twin](https://github.com/aditya-caltechie/ai-digital-twin/tree/main) | A conversational digital twin: a Next.js chat UI talks to a FastAPI backend that uses OpenAI with session memory on **AWS** |
 
 
 ---
