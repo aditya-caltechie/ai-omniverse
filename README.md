@@ -157,7 +157,8 @@ Besides that, there are two major concept :
 | --------- | -------- | --------------- |
 | Healthcare-Pro on **Vercel** | [ai-healthcare-pro](https://github.com/aditya-caltechie/ai-healthcare-pro)| Deploying AI based healthcare SAAS app on **Vercel**, with clerk auth. Learn a bit of frontend. Can be deployed to either Vercel or AWS (ECR, AppRunner) |
 | Digital-twin on **AWS** and **Terraform**| [ai-digital-twin](https://github.com/aditya-caltechie/ai-digital-twin/tree/main) | A conversational digital twin: a Next.js chat UI talks to a FastAPI backend that uses OpenAI with session memory on **AWS**. It uses S3, Lambda, API-gateway, CloudFront, BedRock, Cloudwatch, IAM |
-| Cyber Security Analyzer on **Auzure**, **GCP** and **Terraform**| [ai-cybersecurity-analyzer](https://github.com/aditya-caltechie/ai-cybersecurity-analyzer) | An AI-powered web application that scans and analyzes Python code for security vulnerabilities. |
+| Cyber Security Analyzer on **Auzure** and **Terraform**| [ai-cybersecurity-analyzer](https://github.com/aditya-caltechie/ai-cybersecurity-analyzer) | An AI-powered web application that scans and analyzes Python code for security vulnerabilities. |
+| Financial Planner on **AWS** and **Terraform**| [ai-financial-planner](https://github.com/aditya-caltechie/ai-financial-planner) | Multi-agent AI financial planning platform that analyzes equity portfolios, generates reports, visualizations, and retirement projections using collaborative AI agents deployed on AWS. |
 
 
 ---
