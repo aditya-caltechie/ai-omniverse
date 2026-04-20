@@ -262,7 +262,7 @@ Same browser → API Gateway → Lambda → S3 memory; only the **model side** c
 
 **What the app does:** Multi-agent **financial SaaS**: research → **ingest** → **embeddings** → **S3 Vectors**; **Bedrock** agents; **SageMaker** serverless embeddings; optional **EventBridge** → scheduler **Lambda** → **App Runner** researcher; later guides add **Aurora**, **SQS**, **CloudFront** JWT, **LangFuse**, etc.
 
-**Read first:** root `README.md`, `guides/` in order (`1_permissions.md` → `8_enterprise.md`), `docs/3_architecture.md`, `docs/data-pipeline.md`.
+**Read first:** root `README.md`, `guides/` in order (`1_permissions.md` → `8_enterprise.md`), `docs/3_architecture.md`, `docs/data-pipeline.md`, [`architecture.md`](https://github.com/aditya-caltechie/ai-financial-planner/blob/main/docs/4_agent_architecture.md) (agent roles and collaboration).
 
 **MLOps highlights:**
 
@@ -305,6 +305,43 @@ flowchart TB
     IL --> SM
     IL --> SV
   end
+```
+
+#### Agent collaboration overview (from upstream `4_agent_architecture.md`)
+
+How Alex’s agents work together: **Financial Planner** orchestrates specialists; **Researcher** runs on an **EventBridge** schedule and fills **S3 Vectors**; the planner also pulls context from vectors. Source: [`docs/4_agent_architecture.md`](https://github.com/aditya-caltechie/ai-financial-planner/blob/main/docs/4_agent_architecture.md).
+
+```mermaid
+graph TB
+    User[User Request] -->|Portfolio Analysis| Planner[Financial Planner<br/>Orchestrator Agent]
+
+    Planner -->|Check Instruments| Tagger[InstrumentTagger<br/>Agent]
+    Tagger -->|Classify Assets| DB[(Database)]
+
+    Planner -->|Generate Analysis| Reporter[Report Writer<br/>Agent]
+    Reporter -->|Markdown Reports| DB
+
+    Planner -->|Create Visualizations| Charter[Chart Maker<br/>Agent]
+    Charter -->|JSON Chart Data| DB
+
+    Planner -->|Project Future| Retirement[Retirement Specialist<br/>Agent]
+    Retirement -->|Income Projections| DB
+
+    DB -->|Results| Response[Complete Analysis<br/>Report]
+
+    Planner -->|Retrieve Context| Vectors[(S3 Vectors<br/>Knowledge Base)]
+
+    Schedule[EventBridge<br/>Every 2 Hours] -->|Trigger| Researcher[Researcher<br/>Agent]
+    Researcher -->|Store Insights| Vectors
+    Researcher -->|Web Research| Browser[Web Browser<br/>MCP Server]
+
+    style Planner fill:#FFD700,stroke:#333,stroke-width:3px
+    style Researcher fill:#87CEEB
+    style Schedule fill:#9333EA
+    style Tagger fill:#98FB98
+    style Reporter fill:#DDA0DD
+    style Charter fill:#F0E68C
+    style Retirement fill:#FFB6C1
 ```
 
 ---
