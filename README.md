@@ -185,6 +185,7 @@ These files live in **`docs/`** (repository root). They **thread the same topics
 | **[3_LLM-TRAINING.md](docs/3_LLM-TRAINING.md)** | **Pre-training vs fine-tuning** vs education | **Foundation pre-training** builds the base checkpoint; **continued pre-training** nudges it on more unlabeled domain text; **full FT** and **PEFT** adapt on task data; **`ai-deep-learning`** teaches architecture + small-data training—not web-scale foundation PT. |
 | **[4_FINE-TUNING.md](docs/4_FINE-TUNING.md)** | **SFT** and parameter-efficient methods | **SFT** teaches behavior from labeled pairs; **full FT** updates all weights; **LoRA / QLoRA** train small adapters; **prompt / prefix tuning** steers the model with few trainable parameters. |
 | **[5_AGENTIC_TRACK.md](docs/5_AGENTIC_TRACK.md)** | **Agent frameworks** + MCP | Shared base: **LLM + tools + multi-step control**; compare **OpenAI Agents SDK**, **CrewAI**, **LangGraph**, **AutoGen** by orchestration style; **MCP** is a **tool/resource protocol**, not a replacement for those orchestrators. |
+| **[6_MLOPS_TRACK.md](docs/6_MLOPS_TRACK.md)** | **MLOps / production** on **AWS** (plus multi-cloud labs) | **Four-project arc** (SaaS → serverless platform → multi-cloud → agentic enterprise): **Terraform**, **CI/CD**, **Bedrock/SageMaker**, vectors, queues, observability—tied to reference repos (**healthcare**, **digital twin**, **cybersecurity**, **financial planner**). |
 
 
 ### How the guides connect (ASCII mind map)
