@@ -154,9 +154,9 @@ Below, **“Read first”** points at typical entry docs; each repo’s tree may
 | **CloudFront + CORS** | Tighten `CORS_ORIGINS` when you know the CDN URL—**security in deployment**. |
 | **Terraform** | Infra as code for AWS resources—repeatable environments. |
 
-The diagrams below match the **Day 2 deployment** described in the upstream repo’s [`docs/aws-architecture.md`](https://github.com/aditya-caltechie/ai-digital-twin/blob/main/docs/aws-architecture.md) and [`README.md`](https://github.com/aditya-caltechie/ai-digital-twin/blob/main/README.md): **HTTP API** → **Lambda** (FastAPI + **Mangum**), **two S3 buckets** (frontend vs memory), optional **CloudFront**, **OpenAI** today with **Bedrock** as the planned swap. The course slide uses **Yellow** = static UI, **Blue** = API + memory, **Purple** = model on AWS (Bedrock). **Route 53** is used when you attach **custom domains** to CloudFront and/or API Gateway (see `docs/aws_route53.md` in the repo). **IAM** scopes Lambda’s access to the memory bucket (and later `bedrock:InvokeModel`). **CloudWatch Logs** captures Lambda stdout/stderr.
+Architecture detail and narrative (request flows, two buckets, CORS) live in the upstream doc: **[`docs/aws-architecture.md`](https://github.com/aditya-caltechie/ai-digital-twin/blob/main/docs/aws-architecture.md)**. The **Day 2** path is: static frontend on **S3** (optional **CloudFront**), **API Gateway (HTTP API)** → **Lambda** (FastAPI + **Mangum**), session JSON in a **separate S3 memory bucket**, **OpenAI** for completions today; **Bedrock** is the documented next step (IAM on the Lambda role). Optional **Route 53** for custom domains is covered in `docs/aws_route53.md` in that repo.
 
-**Reference figure in repo:** [`docs/assets/deployment-architecture-new.png`](https://github.com/aditya-caltechie/ai-digital-twin/blob/main/docs/assets/deployment-architecture-new.png) (same layout as the diagrams below).
+**PNG in repo (course slide):** [`docs/assets/deployment-architecture-new.png`](https://github.com/aditya-caltechie/ai-digital-twin/blob/main/docs/assets/deployment-architecture-new.png).
 
 #### AWS services used (quick reference)
 
@@ -171,102 +171,123 @@ The diagrams below match the **Day 2 deployment** described in the upstream repo
 | **Amazon Bedrock** | **Target:** replace OpenAI calls with in-region **InvokeModel** / chat—no third-party LLM API key for that hop. |
 | **CloudWatch** | **Logs** (and metrics) for Lambda—default ops path for debugging. |
 
-#### Diagram 1 — Two-path view (Yellow static + Blue API, Day 2)
+#### ASCII — two-path view (from upstream `aws-architecture.md`)
 
-Same mental model as the ASCII “two-branch” figure in `docs/aws-architecture.md`: path (1) serves the **website**; path (2) handles **each chat turn**.
-
-```mermaid
-flowchart TB
-  B[Browser]
-
-  subgraph yellow [Yellow path — static site]
-    CF[CloudFront]
-    S3f["S3: frontend bucket<br/>Next static export"]
-    B -->|GET HTML / JS / CSS| CF
-    CF --> S3f
-  end
-
-  subgraph blue [Blue path — chat API]
-    AGW["API Gateway HTTP API"]
-    L["Lambda<br/>FastAPI + Mangum"]
-    S3m["S3: memory bucket<br/>session JSON per key"]
-    OAI["OpenAI API<br/>external HTTPS"]
-    B -->|POST /chat GET /health| AGW
-    AGW --> L
-    L <--> S3m
-    L --> OAI
-  end
-```
-
-Loading the app **does not** invoke Lambda; only **API Gateway** traffic does.
-
-#### Diagram 2 — Purple path: Bedrock as target (from repo)
-
-**Browser → API Gateway → Lambda → S3 memory** is unchanged; only the **model dependency** moves from OpenAI to **Bedrock** (IAM on the Lambda role).
-
-```mermaid
-flowchart TB
-  B[Browser]
-
-  subgraph yellow [Unchanged: Yellow]
-    CF[CloudFront]
-    S3f[S3 frontend]
-    B --> CF
-    CF --> S3f
-  end
-
-  subgraph api [Unchanged: Blue shell]
-    AGW[API Gateway]
-    L[Lambda]
-    S3m[S3 memory]
-    B --> AGW
-    AGW --> L
-    L <--> S3m
-  end
-
-  subgraph purple [Purple — next step]
-    BR["Amazon Bedrock<br/>InvokeModel / converse"]
-  end
-
-  L -.->|IAM no OpenAI key for LLM| BR
-```
-
-#### Diagram 3 — End-to-end Day 2 (optional Route 53 + observability)
-
-Conceptual alignment with the “end-to-end ASCII” block in `docs/aws-architecture.md`: one **Internet** user agent, **two entry points** (CloudFront for assets, API Gateway for JSON).
-
-```mermaid
-flowchart TB
-  subgraph edge [Optional DNS]
-    R53[Route 53]
-  end
-
-  I[Internet / user browser]
-
-  subgraph static [Static delivery]
-    CF[CloudFront]
-    S3w[S3 website bucket]
-    R53 -.-> CF
-    I -->|HTTPS site URL| CF
-    CF --> S3w
-  end
-
-  subgraph api [Chat API]
-    I -->|HTTPS invoke URL CORS| APIGW[API Gateway HTTP API]
-    APIGW --> LAM[Lambda handler]
-    LAM --> CW[CloudWatch Logs]
-    LAM <--> MEM[S3 memory bucket]
-    LAM --> OAI[OpenAI]
-  end
-```
-
-#### ASCII — compact request paths (same as README narrative)
+One branch serves the **website** (reads); the other handles **chat API** traffic each message. **Path (1)** is the “Yellow” static path; **Path (2)** is the “Blue” API path (Lambda talks to **S3 memory** and **OpenAI**).
 
 ```
-  [Browser] ──HTTPS──► [CloudFront] ──► [S3 static Next export]
-      │
-      └──HTTPS──► [API Gateway] ──► [Lambda] ──► [S3 memory] + OpenAI → (next) Bedrock
+         +---------------------------------------+
+         |          Browser                      |
+         |  loads UI  +  calls /chat             |
+         +---------------------------------------+
+              ^                             ^
+              (1) HTML/JS/CSS, etc.         |  (2) POST /chat, GET /health
+              cached at edge                |      (JSON over HTTPS)
+              |                             |
+   +----------+-----------+       +---------+----------+
+   |      CloudFront      |       |   API Gateway      |
+   |  CDN, HTTPS viewer   |       |   HTTP API         |
+   +----------+-----------+       +---------+----------+
+              |                             |
+              v                             v
+   +----------------------+       +----------------------+
+   | S3: frontend bucket  |       | Lambda               |
+   | static website host  |       | app + Mangum handler |
+   +----------------------+       +----------+-----------+
+                                             |
+                        +--------------------+--------------------+
+                        v                                         v
+             +----------------------+                   +------------------+
+             | S3: memory bucket    |                   | OpenAI API       |
+             | read/write session   |                   | generate reply   |
+             | JSON per session     |                   | (external SaaS)  |
+             +----------------------+                   +------------------+
 ```
+
+#### ASCII — target with Amazon Bedrock (from upstream “Next: Amazon Bedrock”)
+
+Same browser → API Gateway → Lambda → S3 memory; only the **model side** changes to **Bedrock** (“Purple” in the course slide). Lambda execution role gets **`bedrock:InvokeModel`** (etc.) instead of relying on an OpenAI key for the LLM call.
+
+```
+                         +-----------------------------+
+                         |          Browser            |
+                         |  loads UI  +  calls /chat   |
+                         +-----------------------------+
+                           ^                 ^
+              (1) static  |                 |  (2) API
+              |           |                 |
+   +----------+-----------+       +---------+----------+
+   |      CloudFront      |       |   API Gateway      |
+   +----------+-----------+       +---------+----------+
+              |                             |
+              v                             v
+   +----------------------+       +----------------------+
+   | S3: frontend         |       | Lambda               |
+   | (static site)        |       | business logic       |
+   +----------------------+       +----------+-----------+
+                                             |
+                        +--------------------+--------------------+
+                        v                                         v
+             +----------------------+                   +----------------------+
+             | S3: memory           |                   | Amazon Bedrock       |
+             | conversation history |                   | InvokeModel / chat   |
+             | (read + write JSON)  |                   | (managed models)     |
+             +----------------------+                   +----------------------+
+```
+
+#### ASCII — end-to-end Day 2 (from upstream “End-to-end ASCII diagram”)
+
+Shows **INTERNET** → browser + optional **CloudFront** → **S3 frontend** → separate **API Gateway** → **Lambda** → **OpenAI** + **S3 memory** (IAM on the role for S3).
+
+```
+                                    INTERNET
+                                        |
+                                        v
++---------------------------+     +---------------------------+
+|        User browser       |     |   (Optional) CloudFront   |
+|  HTML/JS/CSS + fetch()    |     |   HTTPS edge, CDN cache   |
++---------------------------+     +-------------+-------------+
+            |                                   |
+            |  (A) Direct static site           |  (B) Production path
+            |  http(s) website endpoint         |  https://*.cloudfront.net
+            v                                   v
++---------------------------------------------------------------+
+|              S3: Frontend bucket (static website)             |
+|   Next.js `out/` → index.html, _next/*, assets                |
+|   Public read via bucket policy; origin for CloudFront        |
++---------------------------------------------------------------+
+            |
+            |  Browser runs JS; POST /chat is a separate request
+            |  (cross-origin: page origin -> API Gateway URL)
+            v
++---------------------------------------------------------------+
+|           API Gateway — HTTP API ($default stage)             |
+|   Routes: GET /, GET /health, POST /chat, OPTIONS /{proxy+}   |
+|   CORS configured on API; invokes Lambda per route            |
++-----------------------------+---------------------------------+
+                              |
+                              |  Lambda proxy integration
+                              v
++---------------------------------------------------------------+
+|                    Lambda: twin-api (example)                 |
+|   Handler: lambda_handler.handler  ->  Mangum(ASGI)  ->       |
+|            FastAPI app (server.py)                            |
+|                                                               |
+|   Env: OPENAI_API_KEY, USE_S3, S3_BUCKET, CORS_ORIGINS, ...   |
+|   Role: IAM policy allowing s3:GetObject / PutObject on       |
+|         memory bucket objects only                            |
++--------+------------------------------------------+---------+
+         |                                          |
+         |  HTTPS (outbound)                        |  AWS SDK
+         v                                          v
++-------------------+              +--------------------------------+
+|   OpenAI API      |              |  S3: Memory bucket             |
+|   chat completion |              |  One JSON key per session_id   |
++-------------------+              |  (private; not website host)   |
+                                   +--------------------------------+
+```
+
+*Source: [aditya-caltechie/ai-digital-twin — `docs/aws-architecture.md`](https://github.com/aditya-caltechie/ai-digital-twin/blob/main/docs/aws-architecture.md).*
 
 ---
 
