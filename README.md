@@ -7,7 +7,7 @@ This repo is a curated learning path covering the full spectrum of modern AI and
 
 | **Area** | **Coverage** |
 | -------- | ------------ |
-| **Traditional ML**    | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation. [Github](https://github.com/aditya-caltechie/handson-mlp)             |
+| **Traditional ML**    | Fundamentals: regression, classification, clustering, feature engineering, and model evaluation.             |
 | **Deep Learning**     | Neural networks, CNNs, RNNs, transformers, and training at scale.                                                                                                      |
 | **Gen AI & LLMs**     | Building applications with large language models: prompting, RAG, advance RAG, agentic RAG, and deployment.                                                            |
 | **Fine Tuning (SFT)** | Fine-tuning small language models ( PEFT e.g. LoRA, QLoRA, adapters) on custom data. You can perform SFT using Full Fine-Tuning (expensive) or LoRA/QLoRA (efficient). |
@@ -18,7 +18,7 @@ This repo is a curated learning path covering the full spectrum of modern AI and
 
 ---
 
-## AI mastery roadmap & hierarchy - mind map
+## AI roadmap & hierarchy - mind map
 
 ```mermaid
 mindmap
@@ -100,7 +100,7 @@ mindmap
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
-| Traditional ML (**optional**) | Todo                                                                     | Todo                                                                                                                                                                                                                                    |
+| Traditional ML (**optional**) | [Basics](https://github.com/aditya-caltechie/MachineLearning-3/tree/master)  [MLProjects1](https://github.com/aditya-caltechie/Machine-Learning-Projects/tree/master) [MLProjects2](https://github.com/aditya-caltechie/machine-learning-4/tree/master) [Refer](https://github.com/aditya-caltechie/handson-mlp)  | This are references to public repos with fundamentals and projects. |
 | Deep Learning (**optional**)  | [ai-deep-learning](https://github.com/aditya-caltechie/ai-deep-learning) | Building your own NN from scratch. It also has workshop which covers - Deep learning fundamentals with PyTorch/TensorFlow: neural networks, CNNs, RNNs, and training pipelines. Foundation for understanding how modern LLMs are built. |
 
 
@@ -155,7 +155,10 @@ Besides that, there are two major concept :
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
-| Deploy Gen AI & Agentic AI in Production | [MLOps-production](https://github.com/aditya-caltechie/ed-donner-MLOps-production) | Course repo: deploy Gen AI and Agentic AI at scale in 4 weeks. Covers production deployment, guides, and week-by-week materials. |
+| Healthcare-Pro on **Vercel** | [ai-healthcare-pro](https://github.com/aditya-caltechie/ai-healthcare-pro)| Deploying AI based healthcare SAAS app on **Vercel**, with clerk auth. Learn a bit of frontend. Can be deployed to either Vercel or AWS (ECR, AppRunner) |
+| Digital-twin on **AWS** and **Terraform**| [ai-digital-twin](https://github.com/aditya-caltechie/ai-digital-twin/tree/main) | A conversational digital twin: a Next.js chat UI talks to a FastAPI backend that uses OpenAI with session memory on **AWS**. It uses S3, Lambda, API-gateway, CloudFront, BedRock, Cloudwatch, IAM |
+| Cyber Security Analyzer on **Auzure** and **Terraform**| [ai-cybersecurity-analyzer](https://github.com/aditya-caltechie/ai-cybersecurity-analyzer) | An AI-powered web application that scans and analyzes Python code for security vulnerabilities. |
+| Financial Planner on **AWS** and **Terraform**| [ai-financial-planner](https://github.com/aditya-caltechie/ai-financial-planner) | Multi-agent AI financial planning platform that analyzes equity portfolios, generates reports, visualizations, and retirement projections using collaborative AI agents deployed on AWS. |
 
 
 ---
@@ -187,22 +190,22 @@ These files live in **`docs/`** (repository root). They **thread the same topics
 ### How the guides connect (ASCII mind map)
 
 ```
-                    [ docs/1_ROADMAP.md — optional bird's-eye ]
-                                 |
-                                 v
-                         [ docs/2_LLM_CORE_TRACK.md ]
-                    full curriculum arc + week flow
-                                 |
-         +-------------+-------------+-------------+----------------+
-         |             |             |             |                |
-         v             v             v             v                v
-  docs/3_LLM-TRAINING.md   docs/4_FINE-TUNING.md   RAG (inference-time)   docs/5_AGENTIC_TRACK.md
-  foundation CPT FT   SFT · full FT      chunk · embed ·vector DB    handoffs · crews
-  · FT · PEFT         · LoRA · prompts   · retrieve + LLM ·         · graphs · teams
-  · scratch NN                           · agentic RAG · evals      · MCP (see guide)
+                    [ 1_ROADMAP.md — optional bird's-eye ]
+                                    |
+                                    v
+                         [ 2_LLM_CORE_TRACK.md ]
+                            full curriculum arc
+                                     |
+         +-------------+-------------+----------------+--------------+
+         |             |                              |              |
+         v             v                              v              v
+  3_LLM-TRAINING.md   4_FINE-TUNING.md   RAG (inference-time)     AGENTIC_TRACK.md
+  foundation CPT FT   SFT ·full FT/PEFT  chunk ·embed ·vectorDB   handoffs · crews
+  · FT · PEFT         · LoRA · prompts   · retrieve + LLM ·       · graphs · teams
+  · scratch NN                           · agentic RAG · evals    · MCP (see guide)
                                          · repos: ai-rag 
-         |             |             |             |               |
-         +-------------+-------------+-------------+---------------+
+         |             |                          |                  |
+         +-------------+--------------------------+------------------+
                                  |
                                  v
               Product: grounded answers (RAG) + adapted weights + agent orchestration
