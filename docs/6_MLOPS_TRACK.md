@@ -1,8 +1,8 @@
 # MLOps & AI Production Track
 
-This document turns the **Week 0 (Roadmap)** brief—“AI Engineer Production Track: Deploy LLMs & Agents at Scale”—into a **sequenced MLOps learning path**. It ties **four course projects** to concrete tooling (especially **AWS**, **Terraform**, and **CI/CD**), explains **what to understand before each step**, and highlights **what to emphasize from an MLOps point of view** when you read each repository’s README and guides.
+This document brief—“AI Engineer Production Track: Deploy LLMs & Agents at Scale”—into a **sequenced MLOps learning path**. It ties **four course projects** to concrete tooling (especially **AWS**, **Terraform**, and **CI/CD**), explains **what to understand before each step**, and highlights **what to emphasize from an MLOps point of view** when you read each repository’s README and guides.
 
-**Source roadmap themes (Week 0):** deploy to **AWS, GCP, Azure, Vercel**; use **MLOps**, **Bedrock**, **SageMaker**, **RAG/agents**, **MCP**; ship systems that are **scalable, secure, observable**, with **IaC** and **hands-free deployments** (e.g. GitHub Actions).
+**Source roadmap themes:** deploy to **AWS, GCP, Azure, Vercel**; use **MLOps**, **Bedrock**, **SageMaker**, **RAG/agents**, **MCP**; ship systems that are **scalable, secure, observable**, with **IaC** and **hands-free deployments** (e.g. GitHub Actions).
 
 ---
 
