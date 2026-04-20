@@ -17,6 +17,8 @@ This course takes you from **calling frontier LLMs over APIs** to **running open
 
 **Ideas to keep in mind:** Transformers are the usual architecture under the hood; **Hugging Face** gives you both quick **`pipeline()`** inference and **lower-level** APIs that fine-tuning and custom generation need. **Product skills** (UIs, evals, deployment) sit beside model skills all the way through.
 
+Refer to [NOTES](https://github.com/aditya-caltechie/ai-tutorial-notes/tree/main/llm-core) first for organised course overview.
+
 ---
 
 ### Course flow
