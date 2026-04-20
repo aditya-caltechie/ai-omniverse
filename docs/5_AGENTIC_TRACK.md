@@ -2,6 +2,8 @@
 
 Here is a concise map of what each folder teaches, when to pick it, and how the pieces differ—aligned with this repo (`2_openai`, `3_crew`, `4_langgraph`, `5_autogen`).
 
+Refer to [NOTES](https://github.com/aditya-caltechie/ai-tutorial-notes/tree/main/agentic-ai) first for course-overview. 
+
 ## Visual overview (diagrams)
 
 These use [Mermaid](https://mermaid.js.org/) (`mermaid` code fences). They render on GitHub, in many IDEs (e.g. Markdown preview with Mermaid), and in tools like Notion or Obsidian with a plugin. If preview shows raw code, install a Mermaid-capable preview or paste into [mermaid.live](https://mermaid.live).
