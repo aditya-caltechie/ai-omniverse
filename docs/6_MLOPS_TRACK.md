@@ -95,18 +95,18 @@ flowchart LR
 This is the **spine** most projects follow: code in Git, config as env + IaC, run on cloud managed services, observe and control cost.
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
+┌───────────────────────────────────────────────────────────────────────-──────┐
 │  DEVELOPER                                                                   │
-│    git push ──► CI (lint/test/build) ──► CD (terraform apply / deploy script) │
-└─────────────────────────────────────────────────────────────────────────────┘
+│    git push ──► CI (lint/test/build) ──► CD (terraform apply / deploy script)│
+└───────────────────────────────────────────────────────────────────────────-──┘
          │                              │
          ▼                              ▼
 ┌─────────────────┐            ┌────────────────────────────────────────────┐
-│  Artifact       │            │  RUNTIME (example AWS-heavy)                │
-│  container zip  │            │  CloudFront ─► S3 (static UI)               │
-│  static export  │            │  API GW ─► Lambda / App Runner              │
-└─────────────────┘            │  Bedrock / SageMaker ◄► S3 / Aurora / SQS    │
-                               │  IAM · CloudWatch · LangFuse / alarms       │
+│  Artifact       │            │  RUNTIME (example AWS-heavy)               │
+│  container zip  │            │  CloudFront ─► S3 (static UI)              │
+│  static export  │            │  API GW ─► Lambda / App Runner             │
+└─────────────────┘            │  Bedrock / SageMaker ◄► S3 / Aurora / SQS  │
+                               │  IAM · CloudWatch · LangFuse / alarms      │
                                └────────────────────────────────────────────┘
 ```
 
@@ -154,12 +154,118 @@ Below, **“Read first”** points at typical entry docs; each repo’s tree may
 | **CloudFront + CORS** | Tighten `CORS_ORIGINS` when you know the CDN URL—**security in deployment**. |
 | **Terraform** | Infra as code for AWS resources—repeatable environments. |
 
-**ASCII: request paths (from README narrative)**
+The diagrams below match the **Day 2 deployment** described in the upstream repo’s [`docs/aws-architecture.md`](https://github.com/aditya-caltechie/ai-digital-twin/blob/main/docs/aws-architecture.md) and [`README.md`](https://github.com/aditya-caltechie/ai-digital-twin/blob/main/README.md): **HTTP API** → **Lambda** (FastAPI + **Mangum**), **two S3 buckets** (frontend vs memory), optional **CloudFront**, **OpenAI** today with **Bedrock** as the planned swap. The course slide uses **Yellow** = static UI, **Blue** = API + memory, **Purple** = model on AWS (Bedrock). **Route 53** is used when you attach **custom domains** to CloudFront and/or API Gateway (see `docs/aws_route53.md` in the repo). **IAM** scopes Lambda’s access to the memory bucket (and later `bedrock:InvokeModel`). **CloudWatch Logs** captures Lambda stdout/stderr.
+
+**Reference figure in repo:** [`docs/assets/deployment-architecture-new.png`](https://github.com/aditya-caltechie/ai-digital-twin/blob/main/docs/assets/deployment-architecture-new.png) (same layout as the diagrams below).
+
+#### AWS services used (quick reference)
+
+| AWS service | Role in *ai-digital-twin* |
+|-------------|---------------------------|
+| **S3** (2 buckets) | **Frontend:** static Next.js `out/` (public reads). **Memory:** private session JSON; **only Lambda’s IAM role** uses `GetObject` / `PutObject`. |
+| **CloudFront** | Optional **HTTPS + CDN** in front of the S3 website origin; tighten `CORS_ORIGINS` on the API to this domain in production. |
+| **Route 53** | Optional **DNS** for custom hostnames → CloudFront and/or API Gateway (`docs/aws_route53.md`). |
+| **API Gateway** | **HTTP API** (`$default` stage): routes e.g. `GET /`, `GET /health`, `POST /chat`, CORS; invokes Lambda. |
+| **Lambda** | Runs packaged **FastAPI** via **Mangum**; env vars: `OPENAI_API_KEY`, `USE_S3=true`, `S3_BUCKET`, `CORS_ORIGINS`, etc. |
+| **IAM** | Lambda **execution role**: least-privilege policies for **S3 memory** (and Bedrock when enabled). |
+| **Amazon Bedrock** | **Target:** replace OpenAI calls with in-region **InvokeModel** / chat—no third-party LLM API key for that hop. |
+| **CloudWatch** | **Logs** (and metrics) for Lambda—default ops path for debugging. |
+
+#### Diagram 1 — Two-path view (Yellow static + Blue API, Day 2)
+
+Same mental model as the ASCII “two-branch” figure in `docs/aws-architecture.md`: path (1) serves the **website**; path (2) handles **each chat turn**.
+
+```mermaid
+flowchart TB
+  B[Browser]
+
+  subgraph yellow [Yellow path — static site]
+    CF[CloudFront]
+    S3f["S3: frontend bucket<br/>Next static export"]
+    B -->|GET HTML / JS / CSS| CF
+    CF --> S3f
+  end
+
+  subgraph blue [Blue path — chat API]
+    AGW["API Gateway HTTP API"]
+    L["Lambda<br/>FastAPI + Mangum"]
+    S3m["S3: memory bucket<br/>session JSON per key"]
+    OAI["OpenAI API<br/>external HTTPS"]
+    B -->|POST /chat GET /health| AGW
+    AGW --> L
+    L <--> S3m
+    L --> OAI
+  end
+```
+
+Loading the app **does not** invoke Lambda; only **API Gateway** traffic does.
+
+#### Diagram 2 — Purple path: Bedrock as target (from repo)
+
+**Browser → API Gateway → Lambda → S3 memory** is unchanged; only the **model dependency** moves from OpenAI to **Bedrock** (IAM on the Lambda role).
+
+```mermaid
+flowchart TB
+  B[Browser]
+
+  subgraph yellow [Unchanged: Yellow]
+    CF[CloudFront]
+    S3f[S3 frontend]
+    B --> CF
+    CF --> S3f
+  end
+
+  subgraph api [Unchanged: Blue shell]
+    AGW[API Gateway]
+    L[Lambda]
+    S3m[S3 memory]
+    B --> AGW
+    AGW --> L
+    L <--> S3m
+  end
+
+  subgraph purple [Purple — next step]
+    BR["Amazon Bedrock<br/>InvokeModel / converse"]
+  end
+
+  L -.->|IAM no OpenAI key for LLM| BR
+```
+
+#### Diagram 3 — End-to-end Day 2 (optional Route 53 + observability)
+
+Conceptual alignment with the “end-to-end ASCII” block in `docs/aws-architecture.md`: one **Internet** user agent, **two entry points** (CloudFront for assets, API Gateway for JSON).
+
+```mermaid
+flowchart TB
+  subgraph edge [Optional DNS]
+    R53[Route 53]
+  end
+
+  I[Internet / user browser]
+
+  subgraph static [Static delivery]
+    CF[CloudFront]
+    S3w[S3 website bucket]
+    R53 -.-> CF
+    I -->|HTTPS site URL| CF
+    CF --> S3w
+  end
+
+  subgraph api [Chat API]
+    I -->|HTTPS invoke URL CORS| APIGW[API Gateway HTTP API]
+    APIGW --> LAM[Lambda handler]
+    LAM --> CW[CloudWatch Logs]
+    LAM <--> MEM[S3 memory bucket]
+    LAM --> OAI[OpenAI]
+  end
+```
+
+#### ASCII — compact request paths (same as README narrative)
 
 ```
   [Browser] ──HTTPS──► [CloudFront] ──► [S3 static Next export]
       │
-      └──HTTPS──► [API Gateway] ──► [Lambda] ──► [S3 memory] + OpenAI / Bedrock
+      └──HTTPS──► [API Gateway] ──► [Lambda] ──► [S3 memory] + OpenAI → (next) Bedrock
 ```
 
 ---
