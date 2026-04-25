@@ -157,8 +157,8 @@ Besides that, there are two major concept :
 | --------- | -------- | --------------- |
 | Healthcare-Pro on **Vercel** | [ai-healthcare-pro](https://github.com/aditya-caltechie/ai-healthcare-pro)| Deploying AI based healthcare SAAS app on **Vercel**, with clerk auth. Learn a bit of frontend. Can be deployed to either Vercel or AWS (ECR, AppRunner) |
 | Digital-twin on **AWS** via **Terraform**| [ai-digital-twin](https://github.com/aditya-caltechie/ai-digital-twin/tree/main) | A conversational digital twin: a Next.js chat UI talks to a FastAPI backend that uses OpenAI with session memory on **AWS**. It uses S3, Lambda, API-gateway, CloudFront, BedRock, Cloudwatch, IAM |
-| Cyber Security Analyzer on **AWS**, Auzure and GCP via **Terraform**| [ai-cybersecurity-analyzer](https://github.com/aditya-caltechie/ai-cybersecurity-analyzer) | An AI-powered web application that scans and analyzes Python code for security vulnerabilities. Make sure to connect to **wired** N/w for pushing docker image to ECR for **AppRunner**. |
-| Financial Planner on **AWS** via **Terraform**| [ai-financial-planner](https://github.com/aditya-caltechie/ai-financial-planner) | Multi-agent AI financial planning platform that analyzes equity portfolios, generates reports, visualizations, and retirement projections using collaborative AI agents deployed on AWS. Make sure to connect to **wired** N/w for pushing docker image to ECR for **AppRunner**. |
+| Cyber Security Analyzer on **AWS**, Auzure and GCP via **Terraform**| [ai-cybersecurity-analyzer](https://github.com/aditya-caltechie/ai-cybersecurity-analyzer) | An AI-powered web application that scans and analyzes Python code for security vulnerabilities. Connect to **wired** N/w for pushing docker image to ECR for AppRunner. |
+| Financial Planner on **AWS** via **Terraform**| [ai-financial-planner](https://github.com/aditya-caltechie/ai-financial-planner) | Multi-agent AI financial planning platform that analyzes equity portfolios, generates reports, visualizations, and retirement projections using collaborative AI agents deployed on AWS. Connect to **wired** N/w for pushing docker image to ECR for AppRunner. |
 
 
 ---
