@@ -2,15 +2,6 @@
 
 This guide explains **how to choose AWS deployment shapes** for projects that are mostly **Python APIs**, **Gradio/Streamlit demos**, or **agent/RAG backends**—without treating “frontend” as a separate product you must master first. The ideas align with the spirit of shared notes like [*AWS Deployment: No Frontend Knowledge Needed*](https://grok.com/share/bGVnYWN5_909a299a-13fd-469d-9e2b-a14c83a0f4b4?rid=a52f275d-638d-4b91-a599-5dbcc2d0b42a) (Grok share—title only retrievable here; treat this doc as the structured checklist).
 
-**Who this is for in *this* repo**
-
-| Track doc | What you’re shipping | Deployment takeaway |
-|-----------|----------------------|----------------------|
-| **[`2_LLM_CORE_TRACK.md`](2_LLM_CORE_TRACK.md)** | RAG, evaluation UIs, HF-style demos, **Gradio** prototypes | Prefer **one Python service** (container or serverless HTTP) — same code you ran locally or on **Hugging Face Spaces**. |
-| **[`5_AGENTIC_TRACK.md`](5_AGENTIC_TRACK.md)** | **Agents** (tools, handoffs, MCP) still exposed as **FastAPI/Gradio** in many labs | You deploy the **HTTP process** that hosts the agent runtime; no custom SPA required to go live. |
-
-For how patterns map to **capstone/MLOps** projects, see **[`6_MLOPS_TRACK.md`](6_MLOPS_TRACK.md)**.
-
 ---
 
 ## 1. Pick a deployment shape first
