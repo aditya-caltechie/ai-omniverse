@@ -2,6 +2,8 @@
 
 **One stop for AI/ML learning** — AI/ML learning gym: traditional ML, deep learning, fine-tuning, Gen AI, agentic AI. Everything from experiments to production with evaluation and observability.
 
+Refer the Overview documents [here](https://github.com/aditya-caltechie/ai-tutorial-notes) first
+
 This repo is a curated learning path covering the full spectrum of modern AI and machine learning:
 
 
