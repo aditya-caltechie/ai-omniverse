@@ -112,7 +112,7 @@ Besides that, there are two major concept :
 1. **Inference techniques** ( Prompt Engg, RAG, Agentic-RAG ).
 2. **Training techniques**  ( Fine-tuning - Full-fine-tuning / PEFT(LORA/QLORA )).
 
-**In-repo guides:**  [LLM_CORE_TRACK](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/02_LLM_CORE_TRACK.md)  |  [LLM-TRAINING](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/03_LLM-TRAINING.md)  |  [FINE-TUNING](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/04_FINE-TUNING.md)
+**In-repo guides:**  [LLM_CORE_TRACK](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/02_LLM_CORE_TRACK.md)  |  [LLM-TRAINING](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/03_LLM-TRAINING.md)  |  [FINE-TUNING](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/04_FINE-TUNING.md) | [NOTES](https://github.com/aditya-caltechie/ai-tutorial-notes/tree/main/1_LLM-CORE) 
 
 
 | **Topic** | **Repo** | **Description** |
@@ -131,7 +131,7 @@ Besides that, there are two major concept :
 
 ## 3. Agentic Core Track
 
-**In-repo guide:** **[5_AGENTIC_TRACK.md](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/05_AGENTIC_TRACK.md)** (framework comparison, Mermaid diagrams, MCP vs orchestration)
+**In-repo guide:** [AGENTIC_TRACK](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/05_AGENTIC_TRACK.md) (framework comparison, Mermaid diagrams, MCP vs orchestration) | [NOTES](https://github.com/aditya-caltechie/ai-tutorial-notes/tree/main/2_AGENTIC-AI) 
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
@@ -152,6 +152,7 @@ Besides that, there are two major concept :
 
 ## 4. MLOps Track
 
+**In-repo guide:** [MLOPS_TRACK](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/06_MLOPS_TRACK.md) | [NOTES](https://github.com/aditya-caltechie/ai-tutorial-notes/tree/main/3_MLOPS) 
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
@@ -181,7 +182,7 @@ These files live in **`docs/`** (repository root). They **thread the same topics
 | Doc | What it covers | Theory in one line |
 | --- | -------------- | ------------------ |
 | **[1_ROADMAP](docs/1_ROADMAP.md)** | **Course / topic roadmap** (notebooks, resources) | Optional **fundamentals** vs **LLM scientist** vs **LLM engineer** paths; external course structure and handbook links—use as a bird’s-eye supplement to this repo’s tracks. |
-| **[2_LLM_CORE_TRACK](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/02_LLM_CORE_TRACK.md)** | Full **LLM engineering** arc (weeks, capstone) | **Inference-time** path (APIs → Hugging Face → RAG + eval) runs in parallel with **weight-time** adaptation (data → baselines → fine-tuning / QLoRA); **Week 8** hybrid combines RAG, frontier models, fine-tuned specialists, and agents. |
+| **[2_LLM_CORE_TRACK](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/02_LLM_CORE_TRACK.md)** | Full **LLM engineering** arc (weeks, capstone).| **Inference-time** path (APIs → Hugging Face → RAG + eval) runs in parallel with **weight-time** adaptation (data → baselines → fine-tuning / QLoRA); **Week 8** hybrid combines RAG, frontier models, fine-tuned specialists, and agents. |
 | **[3_LLM-TRAINING](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/03_LLM-TRAINING.md)** | **Pre-training vs fine-tuning** vs education | **Foundation pre-training** builds the base checkpoint; **continued pre-training** nudges it on more unlabeled domain text; **full FT** and **PEFT** adapt on task data; **`ai-deep-learning`** teaches architecture + small-data training—not web-scale foundation PT. |
 | **[4_FINE-TUNING](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/04_FINE-TUNING.md)** | **SFT** and parameter-efficient methods | **SFT** teaches behavior from labeled pairs; **full FT** updates all weights; **LoRA / QLoRA** train small adapters; **prompt / prefix tuning** steers the model with few trainable parameters. |
 | **[5_AGENTIC_TRACK](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/05_AGENTIC_TRACK.md)** | **Agent frameworks** + MCP | Shared base: **LLM + tools + multi-step control**; compare **OpenAI Agents SDK**, **CrewAI**, **LangGraph**, **AutoGen** by orchestration style; **MCP** is a **tool/resource protocol**, not a replacement for those orchestrators. |
