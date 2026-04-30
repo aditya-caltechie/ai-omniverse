@@ -231,7 +231,7 @@ See **`6_MLOPS_TRACK.md`** §5.2 and upstream **`docs/aws-architecture.md`** for
 
 The twin project’s own README and **`docs/aws-architecture.md`** describe a **split**: a **built frontend** (static files) and a **serverless API** (Lambda). A minimal Gradio + App Runner app (here contrasted with **ai-deals2buy** as a previous, simpler shape) only needs **one long-lived container**. The table below matches that intent—**not** a feature-by-feature audit of either repo.
 
-| Aspect | **ai-deals2buy** (previous, simpler) | **ai-digital-twin** (this repo) | **Why the extra services?** |
+| Aspect | **ai-deals2buy** | **ai-digital-twin** and **ai-financial-planner** | **Why the extra services?** |
 |--------|--------------------------------------|--------------------------------|-----------------------------|
 | **UI** | Pure **Gradio** (Python renders the UI live) | **Next.js + React + TypeScript** (custom chat UI) | Custom UI is shipped as **static assets** → host on **S3** (+ optional **CloudFront** for HTTPS/CDN). |
 | **Backend** | Monolithic Gradio + background timer in one process | **FastAPI** only (API server; no bundled Gradio UI) | Fits **serverless**: **Lambda** + **Mangum** (ASGI) instead of an always-on process. |
