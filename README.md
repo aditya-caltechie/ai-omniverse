@@ -152,7 +152,7 @@ Besides that, there are two major concept :
 
 ## 4. MLOps Track
 
-**In-repo guide:** [MLOPS_TRACK](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/06_MLOPS_TRACK.md) | [NOTES](https://github.com/aditya-caltechie/ai-tutorial-notes/tree/main/3_MLOPS) 
+**In-repo guide:** [MLOPS_TRACK](https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/06_MLOPS_TRACK.md) for all production ready apps on AWS with Terraform| [NOTES](https://github.com/aditya-caltechie/ai-tutorial-notes/tree/main/3_MLOPS) 
 
 | **Topic** | **Repo** | **Description** |
 | --------- | -------- | --------------- |
@@ -214,7 +214,8 @@ These files live in **`docs/`** (repository root). They **thread the same topics
               (Week 8 / capstone style — see https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/02_LLM_CORE_TRACK.md)
 ```
 
----
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 
 # Appendix :
 
