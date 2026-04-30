@@ -354,8 +354,8 @@ There are 3 main steps:
 - Reinforcement Learning (RLHF/DPO) - Optional
 
 ```
-👉 SFT teaches the model WHAT to say
-👉 PEFT makes it CHEAP to train
-👉 DPO/RLHF teaches HOW to behave
+- SFT teaches the model WHAT to say
+- PEFT makes it CHEAP to train
+- DPO/RLHF teaches HOW to behave
 ```
 
