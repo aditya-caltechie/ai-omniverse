@@ -4,6 +4,9 @@ This document brief—“AI Engineer Production Track: Deploy LLMs & Agents at S
 
 **Source roadmap themes:** deploy to **AWS, GCP, Azure, Vercel**; use **MLOps**, **Bedrock**, **SageMaker**, **RAG/agents**, **MCP**; ship systems that are **scalable, secure, observable**, with **IaC** and **hands-free deployments** (e.g. GitHub Actions).
 
+Refer [NOTES](https://github.com/aditya-caltechie/ai-tutorial-notes/tree/main/mlops) first for course overview. 
+Then individual [md-files](https://github.com/aditya-caltechie/ed-donner-MLOps-production) for instructions to deployment on AWS with terraform.
+
 ---
 
 ## 1. What this track is (and is not)
