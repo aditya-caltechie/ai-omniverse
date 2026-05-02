@@ -53,29 +53,33 @@ mindmap
 
 ```
                          ┌─────────────────────────────┐
-                         │  SHIP  ·  MLOps · evals     │
+                         |         MLOPs & Ship        |
+                         |  Deploy • Monitor • Scale   |
+                         │           evals             │
                          │  guardrails · cost · SLOs   │
                          └──────────────┬──────────────┘
                                         │
                          ┌──────────────▼──────────────┐
-                         │  AGENTS  · tools · loops    │
-                         │  crews · graphs · MCP       │  ← https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/05_AGENTIC_TRACK.md
+                         |          Agnetic AI         |
+                         |   Tools • Planning • Memory |
+                         │   crews · langGraphs · MC   │  ← https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/05_AGENTIC_TRACK.md
                          └──────────────┬──────────────┘
                                         │
               ┌─────────────────────────┴───────────--──────────────┐
               │                                                     │
-   ┌──────────▼──────────┐                               ┌──────────▼──────────┐
-   │ INFERENCE-TIME      │                               │ WEIGHT-TIME         │
-   │ prompts · RAG · API │                               │ CPT · SFT · FT      │
-   │ (no weight change)  │                               │ LoRA · QLoRA        │
-   └──────────┬──────────┘                               └──────────┬──────────┘
+   ┌──────────▼──────────┐                               ┌──────────▼────--------─────┐
+   │   INFERENCE-TIME    │                               │ WEIGHT-TIME (Fine-tuning)  │
+   │ prompts · RAG · API │                               │   CPT · SFT · FT           │
+   │ (no weight change)  │                               │   LoRA · QLoRA             │
+   └──────────┬──────────┘                               └──────────┬────────-------──┘
               │                                                     │
               └───────────────────────────┬─────────────────────────┘
                                           │
                          ┌────────────────▼────────────────┐
-                         │  TRANSFORMERS / LLMs            │
+                         │     TRANSFORMERS / LLMs         │
                          │  attention · tokenizer · base   │
                          │  HF · generate · chat templates │  ← https://github.com/aditya-caltechie/ai-tutorial-notes/blob/main/02_LLM_CORE_TRACK.md
+                         |     GPT • Fine-tuning • RAG     |
                          └────────────────┬────────────────┘
                                           │
                          ┌────────────────▼────────────────┐
@@ -86,6 +90,7 @@ mindmap
                          ┌────────────────▼────────────────┐
                          │  FOUNDATIONS                    │
                          │  classical ML (sup/unsup)       │
+                         |  Regression • Trees • SVM       |
                          └─────────────────────────────────┘
 
   Sidecar ideas (plug in when needed): alignment (DPO / RLHF) · multimodal ·
