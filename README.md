@@ -1,4 +1,4 @@
-# ai-omniverse
+# ai-roadmap
 
 **One stop for AI/ML learning** — AI/ML learning gym: traditional ML, deep learning, fine-tuning, Gen AI, agentic AI. Everything from experiments to production with guardrails, evaluations and observability.
 
